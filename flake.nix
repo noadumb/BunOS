@@ -77,6 +77,7 @@
         inherit system;
 
         modules = [
+          ./host/g14-nixos/noa.nix
 
           home-manager.nixosModules.home-manager
 
