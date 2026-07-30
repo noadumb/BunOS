@@ -1,0 +1,12 @@
+keys:
+  - &users:
+    - &ta age1aehhxf30m7eqw3kjc3fdq3vm2qwnwllwuf3ejnfcrvs3j0wktufssajakc
+  - &hosts:
+    - &g14-nixos age1f5n50y2jjsusuhvrw375m59sxkrnuwh6kphh3s5hzyy8wqntk4xs2gsph9
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+    - age:
+      - *ta
+      - *g14-nixos
+
