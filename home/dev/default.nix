@@ -2,9 +2,11 @@
 {
   imports = [
     ./vsc.nix
+    ./direnv.nix
+    ./sec.nix
   ];
 
-  editorconfig = {
+/*  editorconfig = {
     enable = true;
     settings = {
       "*" = {
@@ -25,5 +27,5 @@
         trim_trailing_whitespace = false;
       };
     };
-  };
+  };*/
 }

@@ -18,7 +18,7 @@ in
 
   
   # NVIDIA GPU
-  hardware.graphics = {
+/*  hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
@@ -57,7 +57,7 @@ in
     nvidiaBusId = "PCI:100:0:0";
 
     sync.enable = true;
-  };
+  }; */
 
     
 

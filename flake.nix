@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lazyvim.url = "github:pfassina/lazyvim-nix";
 
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -21,17 +20,16 @@
     self,
     nixpkgs,
     home-manager,
-    lazyvim,
     agenix,
       ...
   }:
   let
     system = "x86_64-linux";
     sys = hostname: ./host/${hostname}/system.nix;
-    pkgs = import nixpkgs {
-      inherit system;
-	    config.allowUnfree = true;
-    };
+#    pkgs = import nixpkgs {
+#      inherit system;
+#	    config.allowUnfree = true;
+#    };
     lib = nixpkgs.lib;
 
     args =
@@ -57,13 +55,13 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
           home-manager.users.${user} = import ./host/${hostname}/${user}.nix;
+          #home-manager.users.noa = import ./home.nix;            //delete
           home-manager.extraSpecialArgs = {
             inherit self;
             inherit system;
             inherit hostname;
             inherit user;
             inherit inputs;
-            inherit lazyvim; #TODO move this
           };
         };
   in
@@ -77,8 +75,8 @@
         inherit system;
 
         modules = [
-          ./host/g14-nixos/noa.nix
-
+#          ./host/g14-nixos/noa.nix
+          hmSettings
           home-manager.nixosModules.home-manager
 
           (sys hostname)

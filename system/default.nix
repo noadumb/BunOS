@@ -8,10 +8,11 @@
 {
   imports = [
     ./boot
-    ./net 
+    ./net
+    ./de
   ];
 
-  nix.package = pkgs.lix;
+#  nix.package = pkgs.lix; //ENABLE LATER
 
   environment.systemPackages = with pkgs; [
     bash
@@ -53,6 +54,28 @@
     command-not-found.enable = false;
     nix-index.enable = true;
   };
+
+  nix.gc = {
+    automatic = lib.mkDefault false;
+    dates = lib.mkDefault "21:37";
+    options = lib.mkDefault "--delete-older-than 3d";
+    persistent = lib.mkDefault true;
+  };
+
+  nix.optimise = {
+    automatic = lib.mkDefault true;
+    dates = lib.mkDefault [ "22:15" ];
+  };
+
+  documentation = lib.mkDefault {
+    enable = true;
+    nixos = {
+      enable = true;
+      includeAllModules = true;
+    };
+  };
+
+  users.defaultUserShell = pkgs.fish;
   
   system.nixos = {
     distroName = lib.mkForce "BunOS";

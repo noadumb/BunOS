@@ -1,4 +1,4 @@
-{ config, pkgs, lazyvim, programs, inputs, ... }:
+{ config, pkgs, programs, inputs, ... }:
 
 {
   home.username = "noa";
@@ -42,29 +42,7 @@
     ];
   };
 
-  imports = [
-    lazyvim.homeManagerModules.default
-  ];
-  programs.lazyvim = {
-      enable = true;
-      
-      installCoreDependencies = true;
 
-      extras = {
-        lang.nix.enable = true;
-        lang.python = {
-          enable = true;
-          installDependencies = true;
-          installRuntimeDependencies = true;
-          };
-        lang.rust.enable = true;
-        };
-      extraPackages = with pkgs; [
-      nixd
-      alejandra
-      yaml-language-server
-      ];
-    };
  
   
 
