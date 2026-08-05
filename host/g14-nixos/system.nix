@@ -24,6 +24,7 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+  services.asusd.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -69,12 +70,17 @@
       manager.plasma.enable = true;
 
     };
+    gaming.enable = true;
   };
 
   users = {
-    mutableUsers = false;
+    mutableUsers = true; #TEMPORARY
     users = {
+      root = {
+
+      };
       noa = {
+
         isNormalUser = true;
         extraGroups = [
           "wheel"

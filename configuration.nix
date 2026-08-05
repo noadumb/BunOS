@@ -63,12 +63,12 @@ in
 
 
 
-  programs.steam = {
+/*  programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
+  }; */
 
 
 
@@ -112,9 +112,9 @@ in
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+#  services.printing.enable = true; #nuhuh
 
-  # Enable sound with pipewire.
+/*  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -129,7 +129,7 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
+*/
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -181,24 +181,25 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+/*  environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-  ];
+  ];*/
 
-  services = {
+
+/*  services = {
     asusd = {
       enable = true;
     };
-  };
+  }; */
   
-  nix.settings = {
+/*  nix.settings = {
     substituters = ["https://nix-gaming.cachix.org"];
     trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
     
 
-
+*/
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -225,6 +226,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
+#  system.stateVersion = "26.05"; # Did you read the comment?
 
 }

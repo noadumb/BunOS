@@ -8,6 +8,9 @@
     ./dev
   ];
 
+  services.kdeconnect.enable = true;
+
+
   
 
   home.language = lib.mkDefault {

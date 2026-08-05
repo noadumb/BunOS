@@ -11,16 +11,15 @@
     nixd
   ];
   
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     profiles.default = {
       enableUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
         redhat.vscode-xml
         redhat.vscode-yaml
-        joortheen.nix-ide
+#        joortheen.nix-ide
         thenuprojectcontributors.vscode-nushell-lang
         rust-lang.rust-analyzer
         leonardssh.vscord

@@ -19,6 +19,8 @@
     akonadi-calendar
   ];
 
+  programs.kdeconnect.enable = true;
+
   programs.kde-pim = {
     enable = true;
     kmail = false;

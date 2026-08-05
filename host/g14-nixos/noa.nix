@@ -11,12 +11,13 @@
     ../../home
   ];
 
-  home.username = "noa";
-  home.homeDirectory = "/home/noa";
 
-  home.stateVersion = "26.05";
+
+
+
+
   
-  programs.home-manager.enable = true;
+
   
   home.packages = with pkgs; [
     vesktop
@@ -26,10 +27,21 @@
     heroic
     hydralauncher
     vscodium
-  ];
+    vesktop #change to discord package with vencord overlay
+    kdePackages.kate
+    telegram-desktop
+    signal-desktop
+    tor-browser
+    tealdeer
+    ];
   programs.firefox = {
     enable = true;
   };
+
+  programs.nushell = {
+    enable = true;
+  };
+
 
 
   programs.obs-studio = {

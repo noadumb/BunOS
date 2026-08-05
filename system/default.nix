@@ -10,6 +10,7 @@
     ./boot
     ./net
     ./de
+    ./gaming
   ];
 
 #  nix.package = pkgs.lix; //ENABLE LATER
