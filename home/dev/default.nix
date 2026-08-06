@@ -6,7 +6,7 @@
     ./sec.nix
   ];
 
-/*  editorconfig = {
+  editorconfig = {
     enable = true;
     settings = {
       "*" = {
@@ -27,5 +27,5 @@
         trim_trailing_whitespace = false;
       };
     };
-  };*/
+  };
 }

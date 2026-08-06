@@ -8,10 +8,9 @@
     ./dev
   ];
 
-  services.kdeconnect.enable = true;
 
 
-  
+
 
   home.language = lib.mkDefault {
     base = "en_US.UTF-8";

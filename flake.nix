@@ -1,6 +1,6 @@
 {
   description = "A very basic flake";
-  
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
@@ -70,7 +70,7 @@
       let
         user = "noa";
         hostname = "g14-nixos";
-      in 
+      in
       {
         inherit system;
 

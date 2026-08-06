@@ -16,10 +16,20 @@
     profiles.default = {
       enableUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
+        bmalehorn.vscode-fish
+        tamasfe.even-better-toml
+        aaron-bond.better-comments
+        mkhl.direnv
+        davidanson.vscode-markdownlint
+        dbaeumer.vscode-eslint
+        firefox-devtools.vscode-firefox-debug
+        timonwong.shellcheck
+        vadimcn.vscode-lldb
+        ziglang.vscode-zig
         vscodevim.vim
         redhat.vscode-xml
         redhat.vscode-yaml
-#        joortheen.nix-ide
+        jnoortheen.nix-ide
         thenuprojectcontributors.vscode-nushell-lang
         rust-lang.rust-analyzer
         leonardssh.vscord
