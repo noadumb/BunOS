@@ -49,8 +49,8 @@
 
     services.xserver.xkb = {
       layout = "us";
-      variant = "intl";
-      options = "";
+#      variant = "qwerty"; DONT REENABLE PLS
+#      options = "";
     };
 
     services.pipewire = {

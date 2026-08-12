@@ -16,9 +16,9 @@
 
 
 
-  
 
-  
+
+
   home.packages = with pkgs; [
     vesktop
     vlc
@@ -33,7 +33,18 @@
     signal-desktop
     tor-browser
     tealdeer
+    krita
+    spotify #change to idk spotifyd at some point
+
     ];
+
+#   android_sdk.accept_license = true;
+
+  programs.thunderbird = {
+    enable = true;
+  };
+
+
   programs.firefox = {
     enable = true;
   };
@@ -42,11 +53,17 @@
     enable = true;
   };
 
+/*  bunos.net.syncthing = {
+    enable = true;
+#    cert =
+#    key =  # LATER
+  }; */
+
 
 
   programs.obs-studio = {
     enable = true;
-    
+
     package = (
       pkgs.obs-studio.override {
         cudaSupport = true;
@@ -64,14 +81,14 @@
   };
 
 
-  
+
 
   programs.neovim.defaultEditor = true;
 
-  programs.nh = {
+/*  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 7d --keep 5";
     flake = "/home/noa/config";
-  };
+  }; */
 }

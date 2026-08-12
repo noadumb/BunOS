@@ -13,7 +13,7 @@
     ./gaming
   ];
 
-#  nix.package = pkgs.lix; //ENABLE LATER
+  nix.package = pkgs.lix; #ENABLE LATER
 
   environment.systemPackages = with pkgs; [
     bash
@@ -77,7 +77,7 @@
   };
 
   users.defaultUserShell = pkgs.fish;
-  
+
   system.nixos = {
     distroName = lib.mkForce "BunOS";
     distroId = lib.mkForce "bunos";

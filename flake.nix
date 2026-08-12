@@ -13,6 +13,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+
   };
 
   outputs =
@@ -54,6 +62,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
+          home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
           home-manager.users.${user} = import ./host/${hostname}/${user}.nix;
           #home-manager.users.noa = import ./home.nix;            //delete
           home-manager.extraSpecialArgs = {

@@ -29,5 +29,12 @@
         ];
       };
 
+      console = lib.mkDefault {
+        earlySetup = true;
+        font = "Lat2-Terminus16";
+        keyMap = "qwerty";
+        useXkbConfig = false;
+      };
+
     };
 }

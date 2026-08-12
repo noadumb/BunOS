@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 {
@@ -23,7 +22,7 @@
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.asusd.enable = true;
 
   hardware.nvidia = {
@@ -68,9 +67,11 @@
     display = {
       wayland.enable = true;
       manager.plasma.enable = true;
-
     };
+
+#    input.fcitx.enable = true;
     gaming.enable = true;
+
   };
 
   users = {
