@@ -7,6 +7,7 @@
   imports = [
     ./hw.nix
     ../../system
+    ../../vim
   ];
 
   nixpkgs.config.allowUnfree = true;

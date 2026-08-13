@@ -1,0 +1,11 @@
+browser config?
+add irc and matrix
+add windows to bootloader
+fix windows-related time stuff
+
+add impermanence and disko
+change partition layout
+maybe make shared partition for windows? idk
+setup sops and age
+
+figure out logseq issue

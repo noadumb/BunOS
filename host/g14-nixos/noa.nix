@@ -1,65 +1,95 @@
 {
+  osConfig,
   config,
   pkgs,
   lib,
-  programs,
   inputs,
   ...
 }:
 {
   imports = [
     ../../home
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
-
-
-
-
-
-
-
-
   home.packages = with pkgs; [
-    vesktop
-    vlc
     sops
     age
     heroic
     hydralauncher
     vscodium
-    vesktop #change to discord package with vencord overlay
     kdePackages.kate
     telegram-desktop
     signal-desktop
     tor-browser
-    tealdeer
     krita
     spotify #change to idk spotifyd at some point
-
     ];
 
+  catppuccin = {
+    enable = true;
+    flavor = "macchiato";
+    accent = "mauve";
+  };
+
+  bunos.net.syncthing = {
+    enable = true;
+  };
+
+  bunos.desktop.gaming.minecraft.enable = true;
+
+  programs.senpai.config = {
+    nickname = "noelle";
+    password-cmd = [
+      "cat"
+      "${osConfig.age.secrets.irc.path}"
+    ];
+  };
+
+  services.recoll = {
+    enable = false;
+    # TODO SMTH IDK WRUF :3
+  };
+
+  systemd.user.services = {
+    adjust-audio = {
+      Unit = {
+        Description = "adjust auwudio";
+      };
+
+      Install = {
+        WantedBy = [ "wireplumber.service" ];
+      };
+
+      Service = {
+        Type = "oneshot";
+        ExecStart = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5";
+      };
+    };
+  };
 #   android_sdk.accept_license = true;
 
-  programs.thunderbird = {
+/*  programs.thunderbird = {
+    enable = true;
+  }; */
+
+
+/*  programs.firefox = {
+    enable = true;
+    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  }; */ # moved to browsers directory
+
+/*  programs.nushell = {
     enable = true;
   };
 
-
-  programs.firefox = {
-    enable = true;
-  };
-
-  programs.nushell = {
-    enable = true;
-  };
-
-/*  bunos.net.syncthing = {
+  bunos.net.syncthing = {
     enable = true;
 #    cert =
 #    key =  # LATER
   }; */
 
-
+/*
 
   programs.obs-studio = {
     enable = true;
@@ -80,10 +110,9 @@
     ];
   };
 
+*/
 
 
-
-  programs.neovim.defaultEditor = true;
 
 /*  programs.nh = {
     enable = true;

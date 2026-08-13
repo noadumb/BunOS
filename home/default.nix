@@ -5,7 +5,14 @@
 }:
 {
   imports = [
+    ./browsers
     ./dev
+    ./gaming
+    ./im
+    ./media
+    ./net
+    ./office
+    ./shell
     ./plasma.nix
   ];
 
@@ -32,6 +39,7 @@
     manpages.enable = true;
     json.enable = true;
   };
+  news.display = "notify";
   home.stateVersion = "26.05";
   home.username = user;
 }
