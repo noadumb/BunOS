@@ -117,13 +117,13 @@
   age.identityPaths = [
     "/etc/ssh/ssh_host_ed25519_key" #TODO: change after implementing impermanence
   ];
-  age.secrets.rt = {
+  age.secrets.root = {
     file = ./secrett/root.age;
     mode = "400";
     owner = "root";
     group = "root";
   };
-  age.secrets.no = {
+  age.secrets.noa = {
     file = ./secrett/noa.age;
     mode = "400";
     owner = "root";
