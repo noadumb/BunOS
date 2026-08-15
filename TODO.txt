@@ -23,3 +23,12 @@ nix-shell envs for development
 rust env
 
 embedded rust
+
+fix terminal/fish greeting
+nush
+
+done:
+
+fix themes
+fix keyboard
+fix vscodium font

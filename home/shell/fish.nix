@@ -19,9 +19,9 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
-    interactiveShellInit = "
+    interactiveShellInit = ''
       set fish_greeting
-    ";
+    '';
 
     plugins =
       map

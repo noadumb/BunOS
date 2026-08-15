@@ -4,6 +4,7 @@
     tldr
     choose
     procs
+    doggo
     rustscan
     xh
     duf
@@ -33,8 +34,22 @@
         name = "noelle";
       };
       push = { autoSetupRemote = true; };
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential/libsecret";
     };
   };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        email = "noa.magic2006@gmail.com";
+        name = "noelle";
+      };
+    };
+  };
+
   programs.pay-respects = {
     enable = true;
     enableFishIntegration = true;

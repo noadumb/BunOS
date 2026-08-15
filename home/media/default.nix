@@ -4,6 +4,6 @@
     pkgs.vlc
     pkgs.gimp3-with-plugins
     pkgs.obs-studio
-#    pkgs.logseq
+#    pkgs.logseq TODO: FIX WHATEVER
   ];
 }

@@ -6,6 +6,7 @@
 {
   imports = [
     ./browsers
+    ./terminal
     ./dev
     ./gaming
     ./im
@@ -14,6 +15,7 @@
     ./office
     ./shell
     ./plasma.nix
+    ./tracking
   ];
 
 

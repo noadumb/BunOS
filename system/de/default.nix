@@ -9,6 +9,7 @@
 {
   imports = [
     ./kde.nix
+    ./hyprland.nix
   ];
 
   options = with lib; {

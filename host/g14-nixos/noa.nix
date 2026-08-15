@@ -38,6 +38,8 @@
 
   bunos.net.syncthing = {
     enable = true;
+    cert = osConfig.age.secrets.sync.path;
+    key = osConfig.age.secrets.synck.path;
   };
 
   bunos.desktop.gaming.minecraft.enable = true;

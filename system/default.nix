@@ -13,6 +13,7 @@
     ./locale
     ./font
     ./gaming
+    ../overlay
   ];
 
   nix.package = pkgs.lix; #ENABLE LATER
@@ -23,8 +24,10 @@
     curl
     git
     bat
+    zellij
     hyfetch
     whois
+    rdap
     lsof
     pciutils
     nix-output-monitor
@@ -63,6 +66,7 @@
     dates = lib.mkDefault "21:37";
     options = lib.mkDefault "--delete-older-than 3d";
     persistent = lib.mkDefault true;
+    randomizedDelaySec = lib.mkDefault "7min";
   };
 
   nix.optimise = {
