@@ -150,10 +150,10 @@
 
 
   users = {
-    mutableUsers = true; #TEMPORARY
+    mutableUsers = false; #TEMPORARY
     users = {
       root = {
-#        hashedPasswordFile = config.age.secrets.root.path; TESTING: ENABLE IN A BIT
+        hashedPasswordFile = config.age.secrets.root.path; #TESTING: ENABLE IN A BIT
       };
       noa = {
         hashedPasswordFile = config.age.secrets.noa.path;
