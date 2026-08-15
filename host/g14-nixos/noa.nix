@@ -17,7 +17,6 @@
     age
     heroic
     hydralauncher
-    vscodium
     kdePackages.kate
     telegram-desktop
     signal-desktop
@@ -30,6 +29,11 @@
     enable = true;
     flavor = "macchiato";
     accent = "mauve";
+  };
+
+  programs.kitty.settings = {
+    font_family = "Comic Code Ligatures";
+    font_features = "+frac +liga +ordn +sinf";
   };
 
   bunos.net.syncthing = {

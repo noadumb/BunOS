@@ -7,6 +7,7 @@
   imports = [
     ./hw.nix
     ../../system
+    ../../style
     ../../vim
   ];
 
@@ -72,7 +73,7 @@
 
 #    input.fcitx.enable = true;
     gaming.enable = true;
-
+    fonts.useDefault = true;
   };
 
   users = {
@@ -87,7 +88,9 @@
         extraGroups = [
           "wheel"
           "networkmanager"
+          "i2c"
           "video"
+          "adbusers"
         ];
       };
     };

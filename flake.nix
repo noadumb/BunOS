@@ -21,7 +21,11 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    impermanence.url = "github:nix-community/impermanence";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -96,10 +100,11 @@
         inherit system;
 
         modules = [
-#          ./host/g14-nixos/noa.nix
-          hmSettings
+          inputs.impermanence.nixosModules.impermanence
+          inputs.agenix.nixosModules.default
+          inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
-
+          hmSettings
           (sys hostname)
         ];
         specialArgs = args {

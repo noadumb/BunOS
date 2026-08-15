@@ -10,6 +10,8 @@
     ./boot
     ./net
     ./de
+    ./locale
+    ./font
     ./gaming
   ];
 

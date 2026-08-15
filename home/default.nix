@@ -34,6 +34,8 @@
     measurement = "en_US.UTF-8";
   };
 
+  xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
+
   programs.nh.enable = true;
   manual = {
     manpages.enable = true;

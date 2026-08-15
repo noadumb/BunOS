@@ -6,6 +6,17 @@
   ...
 }:
 {
+  options = with lib; {
+    bunos.desktop.customization.kde = {
+      wallpaper = {
+        path = mkOption {
+          type = types.nullOr types.path;
+          description = "the wallpaper path to select";
+          default = null;
+        };
+      };
+    };
+  };
   config = lib.mkIf osConfig.services.desktopManager.plasma6.enable {
     home.packages = with pkgs; [
       kdePackages.ktorrent
@@ -40,6 +51,7 @@
           library = "org.kde.breeze";
           theme = "Breeze"; #mayb change all these to catpuccin at some point
         };
+        wallpaper = config.bunos.desktop.customization.kde.wallpaper.path;
       };
 
       hotkeys.commands."launch-kitty" = {
@@ -49,7 +61,19 @@
       };
 
       #add shortcuts and stuffs
+      shortcuts = {
+        ksmserver = {
+          "Halt Without Confirmation" = "none,Shut Down Without Confirmation";
+          "Lock Session" = [
+            "Screensaver"
+            "Meta+L"
+            "Meta+Ctrl+Alt+L,Meta+L"
+            "Screensaver,Lock Session"
+          ];
+          "Log Out" = "Ctrl+Alt+Del";
+        };
 
+      };
 
     };
     services.kdeconnect.enable = true;

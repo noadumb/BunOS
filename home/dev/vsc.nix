@@ -10,7 +10,7 @@
     nixfmt
     nixd
   ];
-  
+
   programs.vscodium = {
     enable = true;
     profiles.default = {
@@ -36,6 +36,19 @@
         editorconfig.editorconfig
       ];
       userSettings = {
+        "editor.fontFamily" = "'Comic Code Ligatures', 'Symbols Nerd Font Mono', 'monospace', monospace";
+        "editor.fontSize" = 13;
+        "editor.fontWeight" = "normal";
+        "editor.fontLigatures" = true;
+        "editor.formatOnSave" = false;
+        "editor.wordWrap" = "on";
+        "files.autoSave" = "onFocusChange";
+        "update.mode" = "none";
+        "workbench.fontAliasing" = "antialiased";
+        "workbench.iconTheme" = "catppuccin-macchiato";
+        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "terminal.integrated.fontFamily" = "'Comic Code Ligatures', 'Symbols Nerd Font Mono'";
+        "rust-analyzer.server.path" = "rust-analyzer";
 
         "editorconfig.generateauto" = false;
         "nix.enableLanguageServer" = true;
@@ -48,12 +61,17 @@
               let
                 nixopts = "(builtins.getFlake \"${self.outPath}\").nixosConfigurations.${hostname}.options";
               in
-                {
-                  nixos.expr = nixopts;
-                  home-manager.expr = nixopts + ".home-manager.users.type.getSubOptions []";
-            };
+              {
+                nixos.expr = nixopts;
+                home-manager.expr = nixopts + ".home-manager.users.type.getSubOptions []";
+              };
           };
         };
+        "vscord.app.name" = "VSCodium";
+        "vscord.status.buttons.button1.git.inactive.enabled" = false;
+        "vscord.status.buttons.button1.git.active.enabled" = false;
+        "xml.server.binary.path" = "${pkgs.lemminx.outPath}/bin/lemminx";
+        "lldb.library" = "${pkgs.lldb.outPath}/lib/liblldb.so";
       };
     };
   };

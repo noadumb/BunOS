@@ -2,10 +2,24 @@ browser config?
 add irc and matrix
 add windows to bootloader
 fix windows-related time stuff
+fix sleep
 
 add impermanence and disko
-change partition layout
+change partition layout and formats
 maybe make shared partition for windows? idk
 setup sops and age
 
 figure out logseq issue
+
+customize and learn hotkeys for system
+vim
+zen-browser
+
+learn to use vscode
+vim
+
+nix-shell envs for development
+
+rust env
+
+embedded rust
