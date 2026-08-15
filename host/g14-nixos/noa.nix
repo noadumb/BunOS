@@ -38,18 +38,18 @@
 
   bunos.net.syncthing = {
     enable = true;
-    cert = osConfig.age.secrets.sync.path;
-    key = osConfig.age.secrets.synck.path;
+#    cert = osConfig.age.secrets.sync.path;
+#    key = osConfig.age.secrets.synck.path;
   };
 
   bunos.desktop.gaming.minecraft.enable = true;
 
   programs.senpai.config = {
     nickname = "noelle";
-    password-cmd = [
+/*    password-cmd = [
       "cat"
-      "${osConfig.age.secrets.irc.path}"
-    ];
+      "${osConfig.age.secrets.irc.path}" TODO
+    ]; */
   };
 
   services.recoll = {

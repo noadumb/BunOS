@@ -115,7 +115,7 @@
   };
 
   age.identityPaths = [
-    "/etc/ssh/ssh_host_ed25519_key" #TODO: change after implementing impermanence
+    "/home/noa/.ssh/id_ed25519" #TODO: change after implementing impermanence
   ];
   age.secrets.root = {
     file = ./secrett/root.age;
@@ -128,7 +128,7 @@
     mode = "400";
     owner = "root";
     group = "root";
-  };
+  }; /*
   age.secrets.sync = {
     file = ./secrett/sync.age;
     mode = "400";
@@ -145,8 +145,8 @@
     file = ./secrett/irc.age;
     mode = "400";
     owner = "noa";
-    group = "root";
-  };
+    group = "root"; TODO: add these keys
+  }; */
 
 
   users = {
