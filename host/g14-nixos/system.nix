@@ -128,7 +128,7 @@
     mode = "400";
     owner = "root";
     group = "root";
-  }; /*
+  };
   age.secrets.sync = {
     file = ./secrett/sync.age;
     mode = "400";
@@ -145,15 +145,15 @@
     file = ./secrett/irc.age;
     mode = "400";
     owner = "noa";
-    group = "root"; TODO: add these keys
-  }; */
+    group = "root";
+  };
 
 
   users = {
-    mutableUsers = false; #TEMPORARY
+    mutableUsers = false;
     users = {
       root = {
-        hashedPasswordFile = config.age.secrets.root.path; #TESTING: ENABLE IN A BIT
+        hashedPasswordFile = config.age.secrets.root.path;
       };
       noa = {
         hashedPasswordFile = config.age.secrets.noa.path;
