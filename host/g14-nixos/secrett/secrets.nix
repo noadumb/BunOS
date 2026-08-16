@@ -24,4 +24,5 @@ make [
   "sync.age"
   "synck.age"
   "irc.age"
+  "tailscale.age"
 ]

@@ -16,26 +16,26 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelModules = [
     "12c-dev"
-    "ddcci_backlight"
+#    "ddcci_backlight"
   ];
 
-  environment.systemPackages = [
+/*  environment.systemPackages = [
     pkgs.ddcutil
     pkgs.lact
   ];
-  services.udev.packages = [ pkgs.ddcutil ];
+  services.udev.packages = [ pkgs.ddcutil ]; */
   hardware.i2c.enable = true;
 
 
-  services.blueman.enable = true;
+  services.blueman.enable = false; #TODO: fix
 
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-
-    extraPackages = with pkgs; [
+  };
+/*    extraPackages = with pkgs; [
       libva-vdpau-driver
       rocmPackages.clr.icd
     ];
@@ -45,7 +45,7 @@
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  ]; */
 
   bunos.net.ssh.enableJump = true;
 
@@ -103,6 +103,20 @@
     fonts.useDefault = true;
   };
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "server"; #(?)
+    authKeyFile = config.age.secrets.tailscale.path;
+  };
+  networking.nftables.enable = true;
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -143,6 +157,12 @@
   };
   age.secrets.irc = {
     file = ./secrett/irc.age;
+    mode = "400";
+    owner = "noa";
+    group = "root";
+  };
+  age.secrets.tailscale = {
+    file = ./secrett/tailscale.age;
     mode = "400";
     owner = "noa";
     group = "root";

@@ -34,6 +34,7 @@
         rust-lang.rust-analyzer
         leonardssh.vscord
         editorconfig.editorconfig
+        platformio.platformio-vscode-ide
       ];
       userSettings = {
         "editor.fontFamily" = "'Comic Code Ligatures', 'Symbols Nerd Font Mono', 'monospace', monospace";
@@ -48,7 +49,7 @@
         "workbench.iconTheme" = "catppuccin-macchiato";
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "terminal.integrated.fontFamily" = "'Comic Code Ligatures', 'Symbols Nerd Font Mono'";
-        "rust-analyzer.server.path" = "rust-analyzer";
+        "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
 
         "editorconfig.generateauto" = false;
         "nix.enableLanguageServer" = true;

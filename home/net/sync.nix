@@ -22,7 +22,7 @@
       syncthing = {
         enable = true;
         cert = config.bunos.net.syncthing.cert;
-        key = config.bunos.net.syncthing.key; TODO
+        key = config.bunos.net.syncthing.key;
       };
     };
     systemd.user.services.syncthing.Service.Environment = "\"STNODEFAULTFOLDER=true\"";

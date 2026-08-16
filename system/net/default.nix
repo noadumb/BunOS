@@ -47,6 +47,10 @@
         };
       };
 
-      networking.firewall.enable = false;
+      networking.firewall = {
+        enable = false; #TODO: check on this
+        trustedInterfaces = [ config.services.tailscale.interfaceName ];
+        allowedUDPPorts = [ config.services.tailscale.port ];
+      };
     };
 }
