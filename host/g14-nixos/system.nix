@@ -103,7 +103,7 @@
     fonts.useDefault = true;
   };
 
-  services.tailscale = {
+/*  services.tailscale = {
     enable = true;
     useRoutingFeatures = "server"; #(?)
     authKeyFile = config.age.secrets.tailscale.path;
@@ -111,7 +111,7 @@
   networking.nftables.enable = true;
   systemd.services.tailscaled.serviceConfig.Environment = [
     "TS_DEBUG_FIREWALL_MODE=nftables"
-  ];
+  ]; */
 
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
