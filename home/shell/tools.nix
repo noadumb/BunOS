@@ -19,13 +19,13 @@
     yt-dlp
   ];
 
-  programs.ssh = {
+/*  programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
   };
   services.ssh-agent = {
     enable = true;
-  };
+  }; */
 
   programs.git = {
     enable = true;
@@ -33,11 +33,11 @@
     lfs.enable = false;
     maintenance.enable = true;
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtH0Rp4e9J45U6gJ8aeBVP2j1kPEPl18tHrEFKMLPUG noa.magic2006@gmail.com";
+      key = "C782CD1F1A36850B";
       signByDefault = true;
     };
     settings = {
-      gpg.format = "ssh";
+#      gpg.format = "ssh"; #TODO: check
       user = {
         email = "noa.magic2006@gmail.com";
         name = "noelle";
