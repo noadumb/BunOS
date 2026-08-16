@@ -4,6 +4,7 @@
     ./vsc.nix
     ./direnv.nix
     ./sec.nix
+    ./jetbrains.nix
   ];
 
   editorconfig = {
