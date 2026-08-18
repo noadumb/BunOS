@@ -123,6 +123,8 @@
     openFirewall = true;
   };
 
+
+
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;

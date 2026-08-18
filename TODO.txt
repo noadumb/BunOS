@@ -1,5 +1,4 @@
 browser config?
-add irc and matrix
 add windows to bootloader
 fix windows-related time stuff
 fix sleep
@@ -32,3 +31,4 @@ done:
 fix themes
 fix keyboard
 fix vscodium font
+add irc and matrix

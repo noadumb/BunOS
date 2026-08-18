@@ -6,5 +6,6 @@
     ./telegram.nix
     ./matrix.nix
     ./irc.nix
+    ./whatsapp.nix
   ];
 }
