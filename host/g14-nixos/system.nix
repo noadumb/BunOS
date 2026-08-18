@@ -86,6 +86,9 @@
     sync.enable = true;
   };
 
+  # Fixes clock offset with dualboot with windows
+  time.hardwareClockInLocalTime = true;
+
   bunos.boot = {
     mode = "uefi";
   };

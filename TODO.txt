@@ -1,12 +1,12 @@
 browser config?
 add windows to bootloader
-fix windows-related time stuff
+
 fix sleep
 
 add impermanence and disko
 change partition layout and formats
 maybe make shared partition for windows? idk
-setup sops and age
+
 
 figure out logseq issue
 
@@ -32,3 +32,5 @@ fix themes
 fix keyboard
 fix vscodium font
 add irc and matrix
+setup sops and age
+fix windows-related time stuff
