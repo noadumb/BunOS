@@ -113,6 +113,26 @@
         };
       }
     );
+
+    nixosConfigurations.iso = nixpkgs.lib.nixosSystem (
+      let
+        user = "nixos";
+        hostname = "iso";
+      in
+      {
+        inherit system;
+
+        modules = [
+          home-manager.nixosModules.home-manager
+          hmSettings
+          (sys hostname)
+        ];
+        specialArgs = args {
+          inherit hostname;
+          inherit user;
+        };
+      }
+    );
   };
 }
 
