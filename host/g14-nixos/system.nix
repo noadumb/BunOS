@@ -9,6 +9,7 @@
     ../../system
     ../../style
     ../../vim
+#    ./persistence TODO: reenable after done
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -41,11 +42,16 @@
     ];
   };
 
+
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ]; */
+
+  environment.systemPackages = with pkgs; [
+    ntfs3g
+  ];
 
   bunos.net.ssh.enableJump = true;
 
@@ -119,6 +125,14 @@
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
+/*  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+    }
+  ]; */ # in hw.nix aaaa
+
+  #TODO: hibernation?
 
   services.avahi = {
     enable = true;
