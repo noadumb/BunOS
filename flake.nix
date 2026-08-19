@@ -90,10 +90,10 @@
         };
   in
   {
-    nixosConfigurations.g14-nixos = nixpkgs.lib.nixosSystem (
+    nixosConfigurations.buni = nixpkgs.lib.nixosSystem (
       let
-        user = "noa";
-        hostname = "g14-nixos";
+        user = "noelle";
+        hostname = "buni";
       in
       {
         inherit system;

@@ -9,7 +9,7 @@
     ../../system
     ../../style
     ../../vim
-#    ./persistence TODO: reenable after done
+    ./persistence
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -148,7 +148,7 @@
   };
 
   age.identityPaths = [
-    "/home/noa/.ssh/id_ed25519" #TODO: change after implementing impermanence
+    "/home/noelle/.ssh/id_ed25519" #TODO: change after implementing impermanence
   ];
   age.secrets.root = {
     file = ./secrett/root.age;
@@ -156,8 +156,8 @@
     owner = "root";
     group = "root";
   };
-  age.secrets.noa = {
-    file = ./secrett/noa.age;
+  age.secrets.noelle = {
+    file = ./secrett/noelle.age;
     mode = "400";
     owner = "root";
     group = "root";
@@ -165,25 +165,25 @@
   age.secrets.sync = {
     file = ./secrett/sync.age;
     mode = "400";
-    owner = "noa";
+    owner = "noelle";
     group = "root";
   };
   age.secrets.synck = {
     file = ./secrett/synck.age;
     mode = "400";
-    owner = "noa";
+    owner = "noelle";
     group = "root";
   };
   age.secrets.irc = {
     file = ./secrett/irc.age;
     mode = "400";
-    owner = "noa";
+    owner = "noelle";
     group = "root";
   };
   age.secrets.tailscale = {
     file = ./secrett/tailscale.age;
     mode = "400";
-    owner = "noa";
+    owner = "noelle";
     group = "root";
   };
 
@@ -194,8 +194,8 @@
       root = {
         hashedPasswordFile = config.age.secrets.root.path;
       };
-      noa = {
-        hashedPasswordFile = config.age.secrets.noa.path;
+      noelle = {
+        hashedPasswordFile = config.age.secrets.noelle.path;
         isNormalUser = true;
         openssh = {
           authorizedKeys.keys = (import ../ssh.nix { inherit pkgs; }).getAllKeys;

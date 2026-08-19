@@ -5,10 +5,10 @@
 rec {
 
   hosts = {
-    g14-nixos = {
+    buni = {
       tags = [ "laptop" ];
       users = {
-        noa = [
+        noelle = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtH0Rp4e9J45U6gJ8aeBVP2j1kPEPl18tHrEFKMLPUG noa.magic2006@gmail.com"
         ];
       };

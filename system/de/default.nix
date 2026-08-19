@@ -34,7 +34,7 @@
   config = {
     bunos.desktop.display.wayland.enable = lib.mkDefault true;
 
-    services.displayManager.autoLogin.user = "noa";
+    services.displayManager.autoLogin.user = "noelle";
     services.displayManager.sddm = {
       enable = true;
       enableHidpi = true;
