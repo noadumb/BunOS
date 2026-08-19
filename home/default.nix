@@ -38,7 +38,12 @@
 
   xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
 
-  programs.nh.enable = true;
+  programs.nh.enable = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 5";
+    flake = "/home/noa/config";
+  };
   manual = {
     manpages.enable = true;
     json.enable = true;

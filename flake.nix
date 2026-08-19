@@ -80,7 +80,6 @@
           home-manager.backupFileExtension = "bak";
           home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
           home-manager.users.${user} = import ./host/${hostname}/${user}.nix;
-          #home-manager.users.noa = import ./home.nix;            //delete
           home-manager.extraSpecialArgs = {
             inherit self;
             inherit system;
