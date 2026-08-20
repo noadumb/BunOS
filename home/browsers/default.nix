@@ -1,7 +1,13 @@
-{ lib, inputs, pkgs, ... }:
+{ lib, pkgs, ... }:
 {
-  programs.firefox = {
+  programs.librewolf = {
     enable = true;
-    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    settings = lib.mkDefault {
+      "webgl.disabled" = false;
+      "identity.fxaccounts.enabled" = true;
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.downloads" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+    };
   };
 }

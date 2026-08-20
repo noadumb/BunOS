@@ -38,7 +38,7 @@
 
   xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
 
-  programs.nh.enable = {
+  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 7d --keep 5";
