@@ -37,7 +37,7 @@
         platformio.platformio-vscode-ide
       ];
       userSettings = {
-        "editor.fontFamily" = "'Comic Code Ligatures', 'Symbols Nerd Font Mono', 'monospace', monospace";
+        "editor.fontFamily" = "'Comic Code Ligatures', 'Monaspace Xenon', 'monospace', monospace";
         "editor.fontSize" = 13;
         "editor.fontWeight" = "normal";
         "editor.fontLigatures" = true;
