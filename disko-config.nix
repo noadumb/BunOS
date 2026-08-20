@@ -68,8 +68,8 @@ disko.devices = {
                         "noatime"
                       ];
                     };
-                    "/swap" = {
-                      mountpoint = "/swap";
+                    "/awawa" = {
+                      mountpoint = "/awawa";
                       swap.swapfile.size = "48G";
                     };
                   };
