@@ -130,6 +130,7 @@
   };
 
   fileSystems."/silly".neededForBoot = true;
+  environment.etc.adjtime.source = lib.mkForce "/silly/etc/adjtime";
 
 #  swapDevices = [ ];
 

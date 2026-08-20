@@ -33,11 +33,11 @@
     lfs.enable = false;
     maintenance.enable = true;
     signing = {
-      key = "C782CD1F1A36850B";
+      key = "/home/noelle/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
     settings = {
-#      gpg.format = "ssh"; #TODO: check
+      gpg.format = "ssh"; #TODO: check
       user = {
         email = "noa.magic2006@gmail.com";
         name = "noelle";

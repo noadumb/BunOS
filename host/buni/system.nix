@@ -148,7 +148,7 @@
   };
 
   age.identityPaths = [
-    "/home/noelle/.ssh/id_ed25519" #TODO: change after implementing impermanence
+    "/silly/etc/ssh/ssh_host_ed25519_key" #TODO: change after implementing impermanence
   ];
   age.secrets.root = {
     file = ./secrett/root.age;
