@@ -37,7 +37,10 @@
         victor-mono
         nerd-fonts.symbols-only
         vegur
-
+        lato
+        stix-two
+        gentium
+        candy-icons
       ];
 
     fonts.fontconfig = {
