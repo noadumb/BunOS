@@ -18,10 +18,6 @@
     ./tracking
   ];
 
-
-
-
-
   home.language = lib.mkDefault {
     base = "en_US.UTF-8";
     numeric = "en_US.UTF-8";
@@ -38,12 +34,6 @@
 
   xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 5";
-    flake = "/home/noelle/BunOS";
-  };
   manual = {
     manpages.enable = true;
     json.enable = true;
