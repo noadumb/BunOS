@@ -7,6 +7,9 @@
   home.packages = with pkgs; [
     bat
     grc
+    fortune
+    lolcat
+    charasay
   ];
 
   programs.fd.enable = lib.mkForce true;
@@ -19,9 +22,15 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
-    interactiveShellInit = ''
+    functions = {
+      fish_greeting = {
+        description = "Greeting to show when starting a fish shell";
+        body = "fortune | lolcat -f | chara say -c kitten";
+      };
+    };
+/*    interactiveShellInit = ''
       set fish_greeting
-    '';
+    ''; */
 
     plugins =
       map
