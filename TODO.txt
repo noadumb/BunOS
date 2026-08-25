@@ -8,11 +8,10 @@ change partition layout and formats
 maybe make shared partition for windows? idk
 
 
-figure out logseq issue
+figure out logseq issue # just use different app
 
 customize and learn hotkeys for system
 vim
-zen-browser
 
 learn to use vscode
 vim
@@ -22,8 +21,6 @@ nix-shell envs for development
 rust env
 
 embedded rust
-
-fix terminal/fish greeting
 nush
 
 done:
@@ -34,3 +31,4 @@ fix vscodium font
 add irc and matrix
 setup sops and age
 fix windows-related time stuff
+fix terminal/fish greeting

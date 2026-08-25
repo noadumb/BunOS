@@ -23,6 +23,7 @@
     tor-browser
     krita
     spotify #change to idk spotifyd at some point
+    motrix-next
     ];
 
   catppuccin = {
