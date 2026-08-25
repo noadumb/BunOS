@@ -40,7 +40,6 @@
         lato
         stix-two
         gentium
-        candy-icons
       ];
 
     fonts.fontconfig = {

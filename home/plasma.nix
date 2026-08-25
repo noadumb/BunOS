@@ -23,6 +23,8 @@
       kdePackages.ffmpegthumbs
       kdePackages.kdegraphics-thumbnailers
       kdePackages.kdbusaddons
+      catppuccin-kde
+      candy-icons
     ];
 
     programs.plasma = {
@@ -48,7 +50,7 @@
         clickItemTo = "select";
         theme = "Scratchy";
         colorScheme = "Scratchy";
-        cursorTheme = "Sweet-cursors";
+        cursor.theme = "catppuccin-cursors";
         iconTheme = "candy-icons";
         windowDecorations = {
           library = "org.kde.breeze";
