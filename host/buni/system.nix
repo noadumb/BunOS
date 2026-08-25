@@ -10,6 +10,7 @@
     ../../style
     ../../vim
     ./persistence
+#    ./services
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -54,6 +55,8 @@
   ];
 
   bunos.net.ssh.enableJump = true;
+
+
 
   services.xserver.videoDrivers = [ "nvidia" ];
   services.asusd.enable = true;
@@ -125,12 +128,6 @@
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
-/*  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 32 * 1024;
-    }
-  ]; */ # in hw.nix aaaa
 
   #TODO: hibernation?
 
@@ -148,7 +145,7 @@
   };
 
   age.identityPaths = [
-    "/silly/etc/ssh/ssh_host_ed25519_key" #TODO: change after implementing impermanence
+    "/silly/etc/ssh/ssh_host_ed25519_key"
   ];
   age.secrets.root = {
     file = ./secrett/root.age;
