@@ -35,6 +35,7 @@
         leonardssh.vscord
         editorconfig.editorconfig
         platformio.platformio-vscode-ide
+        llvm-vs-code-extensions.vscode-clangd
       ];
       userSettings = {
         "editor.fontFamily" = "'Comic Code Ligatures', 'Monaspace Xenon', 'monospace', monospace";

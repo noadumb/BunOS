@@ -17,6 +17,10 @@
     ripgrep
     (uutils-coreutils.override { prefix = ""; })
     yt-dlp
+    glibcInfo
+    man-pages
+    man-pages-posix
+    clang-tools
   ];
 
 /*  programs.ssh = {
