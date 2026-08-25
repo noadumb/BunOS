@@ -14,8 +14,9 @@
     ./net
     ./office
     ./shell
-    ./plasma.nix
+#    ./vm TODO: install properly ig
     ./tracking
+    ./plasma.nix
   ];
 
   home.language = lib.mkDefault {
