@@ -20,7 +20,7 @@
     kdePackages.kate
     telegram-desktop
     signal-desktop
-    tor-browser
+#    tor-browser
     krita
     spotify #change to idk spotifyd at some point
     motrix-next

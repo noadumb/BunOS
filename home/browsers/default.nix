@@ -1,15 +1,17 @@
 { lib, pkgs, ... }:
 {
-  programs.librewolf = {
+  programs.firefox = {
     enable = true;
 
-    settings = lib.mkDefault {
+
+/*    settings = {
+
       "webgl.disabled" = false;
       "identity.fxaccounts.enabled" = true;
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.downloads" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
-    };
+    }; */
   };
 }
