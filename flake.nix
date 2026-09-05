@@ -113,6 +113,29 @@
       }
     );
 
+    nixosConfigurations.kibity = nixpkgs.lib.nixosSystem (
+      let
+        user = "noelle";
+        hostname = "kibity";
+      in
+      {
+        inherit system;
+
+        modules = [
+          inputs.impermanence.nixosModules.impermanence
+          inputs.agenix.nixosModules.default
+          inputs.disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          hmSettings
+          (sys hostname)
+        ];
+        specialArgs = args {
+          inherit hostname;
+          inherit user;
+        };
+      }
+    );
+
     nixosConfigurations.iso = nixpkgs.lib.nixosSystem (
       let
         user = "nixos";
