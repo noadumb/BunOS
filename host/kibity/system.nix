@@ -169,12 +169,10 @@
     mutableUsers = false;
     users = {
       root = {
-#        hashedPasswordFile = config.age.secrets.root.path;
-        password = "wruf";
+        hashedPasswordFile = config.age.secrets.root.path;
       };
       noelle = {
-#        hashedPasswordFile = config.age.secrets.noelle.path;
-        password = "wruf";
+        hashedPasswordFile = config.age.secrets.noelle.path;
         isNormalUser = true;
         openssh = {
           authorizedKeys.keys = (import ../ssh.nix { inherit pkgs; }).getAllKeys;

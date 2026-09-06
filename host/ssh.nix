@@ -13,6 +13,14 @@ rec {
         ];
       };
     };
+    kibity = {
+      tags = [ "pc" ];
+      users = {
+        noelle = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILsU9kEzxPGxvU54YaNFhCDcgdWYlEDF+3k8QnUlmSXP noelle@kibity"
+        ];
+      };
+    };
   };
 
   getAllKeys = pkgs.lib.unique (
