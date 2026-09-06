@@ -45,19 +45,13 @@
 
   bunos.desktop.gaming.minecraft.enable = true;
 
-  hardware.nvidia.prime = {
-    amdgpuBusId = "PCI:101:0:0";
-    nvidiaBusId = "PCI:100:0:0";
-
-    sync.enable = true;
-  };
   programs.senpai.config = {
     enable = false;
     nickname = "noelle";
-    password-cmd = [
-      "cat"
-      "${osConfig.age.secrets.irc.path}"
-    ];
+#    password-cmd = [
+#      "cat"
+#      "${osConfig.age.secrets.irc.path}"
+#    ];
   };
 
   services.recoll = {
@@ -81,57 +75,5 @@
       };
     };
   };
-#   android_sdk.accept_license = true;
 
-/*  programs.thunderbird = {
-    enable = true;
-  }; */
-
-
-/*  programs.firefox = {
-    enable = true;
-    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  }; */ # moved to browsers directory
-
-/*  programs.nushell = {
-    enable = true;
-  };
-
-  bunos.net.syncthing = {
-    enable = true;
-#    cert =
-#    key =  # LATER
-  }; */
-
-/*
-
-  programs.obs-studio = {
-    enable = true;
-
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-      obs-vaapi
-      obs-gstreamer
-      obs-vkcapture
-    ];
-  };
-
-*/
-
-
-
-/*  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 5";
-    flake = "/home/noa/config";
-  }; */
 }

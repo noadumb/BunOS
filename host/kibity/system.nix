@@ -10,6 +10,7 @@
     ../../style
     ../../vim
     ./persistence
+    ./gpu.nix
 #    ./services
   ];
 
@@ -29,14 +30,10 @@
   hardware.i2c.enable = true;
 
 
-  services.blueman.enable = false; #TODO: fix
+  services.blueman.enable = true; #TODO: fix
 
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 /*    extraPackages = with pkgs; [
       libva-vdpau-driver
       rocmPackages.clr.icd
@@ -58,18 +55,6 @@
 
 
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.asusd.enable = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-
-  };
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -84,7 +69,7 @@
     };
   };
 
-#  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts); //move somewhere with lib defined
+#  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts); //TODO: FIXmove somewhere with lib defined
 
 
 
