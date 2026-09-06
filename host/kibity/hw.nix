@@ -55,10 +55,10 @@
               };
             };
             luks = {
-              size = "100%";
+              size = "750G";
               content = {
                 type = "luks";
-                name = "buni";
+                name = "kibity";
                 settings = {
                   #aaaa
                   allowDiscards = true;

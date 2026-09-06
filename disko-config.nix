@@ -2,7 +2,7 @@
 disko.devices = {
     disk = {
       nvme = {
-        device = "/dev/disk/by-id/nvme-CT4000P3PSSD8_2334E86EFD15";
+        device = "/dev/disk/by-id/nvme-Seagate_BarraCuda_Q5_ZP2000CV30001_7TX0069X";
         type = "disk";
         content = {
           type = "gpt";
@@ -18,10 +18,10 @@ disko.devices = {
               };
             };
             luks = {
-              size = "100%";
+              size = "750G";
               content = {
                 type = "luks";
-                name = "buni";
+                name = "kibity";
                 settings = {
                   #aaaa
                   allowDiscards = true;
