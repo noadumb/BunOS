@@ -22,19 +22,6 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-/*  fileSystems."/" = { #TODO:remove these and replace with disko
-    device = "/dev/disk/by-uuid/e626a254-bb8e-45ca-a55c-df2c77a5ddc1";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/56A7-3E48";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  }; */
 
   disko.devices = {
     disk = {
