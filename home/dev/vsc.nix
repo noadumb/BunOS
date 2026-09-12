@@ -9,13 +9,22 @@
   home.packages = with pkgs; [
     nixfmt
     nixd
+    nix-ld #TODO: find better solution
   ];
+
 
   programs.vscodium = {
     enable = true;
     profiles.default = {
       enableUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
+
+        github.copilot
+        github.copilot-chat
+        ms-vscode-remote.remote-ssh
+        llvm-org.lldb-vscode
+
+
         bmalehorn.vscode-fish
         tamasfe.even-better-toml
         aaron-bond.better-comments

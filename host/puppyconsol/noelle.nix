@@ -32,8 +32,6 @@
     accent = "mauve";
   };
 
-
-
   programs.kitty.settings = {
     font_family = "Comic Code Ligatures";
     font_features = "+frac +liga +ordn +sinf";
