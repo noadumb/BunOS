@@ -2,6 +2,7 @@
   hostname,
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -29,6 +30,12 @@
         ];
         bantime = "3h";
       };
+      environment.systemPackages = with pkgs; [
+        openresolv
+        wireguard-tools
+        wgnord
+      ];
+
 
       services.openssh = {
         enable = true;
