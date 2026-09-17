@@ -52,6 +52,9 @@
 
   environment.systemPackages = with pkgs; [
     ntfs3g
+    asusctl
+    brightnessctl
+    pkgs.mesa-demos
   ];
 
   bunos.net.ssh.enableJump = true;
@@ -59,16 +62,31 @@
 
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  services.asusd.enable = true;
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
+  environment.etc."asusd/.keep".text = "";
+  services.power-profiles-daemon.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
     open = true;
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      amdgpuBusId = "PCI:101:0:0";
+      nvidiaBusId = "PCI:100:0:0";
+    };
   };
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   hardware.bluetooth = {
     enable = true;
@@ -84,16 +102,6 @@
     };
   };
 
-#  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts); //move somewhere with lib defined
-
-
-
-  hardware.nvidia.prime = {
-    amdgpuBusId = "PCI:101:0:0";
-    nvidiaBusId = "PCI:100:0:0";
-
-    sync.enable = true;
-  };
 
   # Fixes clock offset with dualboot with windows
   time.hardwareClockInLocalTime = true;

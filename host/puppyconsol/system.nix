@@ -88,12 +88,6 @@
 
 
 
-  hardware.nvidia.prime = {
-    amdgpuBusId = "PCI:101:0:0";
-    nvidiaBusId = "PCI:100:0:0";
-
-    sync.enable = true;
-  };
 
   # Fixes clock offset with dualboot with windows
   time.hardwareClockInLocalTime = true;
