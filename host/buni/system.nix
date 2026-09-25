@@ -5,19 +5,19 @@
 }:
 {
   imports = [
-    ./hw.nix
+    ./hw
     ../../system
     ../../style
     ../../vim
     ./persistence
-#    ./services
+    ./services
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelModules = [
-    "12c-dev"
+    "i2c-dev"
 #    "ddcci_backlight"
   ];
 
@@ -52,6 +52,8 @@
 
   environment.systemPackages = with pkgs; [
     ntfs3g
+    xfs
+    xfsprogs
     asusctl
     brightnessctl
     pkgs.mesa-demos
@@ -60,33 +62,40 @@
   bunos.net.ssh.enableJump = true;
 
 
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
-  };
-  environment.etc."asusd/.keep".text = "";
-  services.power-profiles-daemon.enable = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      amdgpuBusId = "PCI:101:0:0";
-      nvidiaBusId = "PCI:100:0:0";
-    };
-  };
-  boot.blacklistedKernelModules = [ "nouveau" ];
+#  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+#  services.xserver.videoDrivers = [ "nvidia" ];
+#  services.asusd = {
+#    enable = true;
+#
+#  };
+#  environment.etc."asusd/.keep".text = "";
+#  services.power-profiles-daemon.enable = true;
+#  services.cardwired.enable = true;
+#  services.tlp = {
+#    enable = false;
+#    settings = {
+#      STOP_CHARGE_THRESH_BAT0 = 80;
+#    };
+#  };
+#
+#  hardware.nvidia = {
+#    modesetting.enable = true;
+#    powerManagement.enable = true;
+#    powerManagement.finegrained = true;
+#    open = true;
+#    nvidiaSettings = true;
+#    package = config.boot.kernelPackages.nvidiaPackages.stable;
+#
+#    prime = {
+#      offload = {
+#        enable = true;
+#        enableOffloadCmd = true;
+#      };
+#      amdgpuBusId = "PCI:101@0:0:0";
+#      nvidiaBusId = "PCI:100@0:0:0";
+#    };
+#  };
+#  boot.blacklistedKernelModules = [ "nouveau" ];
 
   hardware.bluetooth = {
     enable = true;

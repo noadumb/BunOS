@@ -75,8 +75,8 @@
           configureFlags =
             (builtins.filter (x: !(lib.strings.hasPrefix x "--with-passprompt=")) old.configureFlags)
             ++ [
-              "--with-badpass-message=bad paw-wowd 🥺🥺🍞"
-	            "--with-passprompt=paw-wowd? 🥺"
+              "--with-badpass-message=bad paw-wowd 🥺🥺🍞 "
+	            "--with-passprompt=paw-wowd? 🥺 "
             ];
         });
       };

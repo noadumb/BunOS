@@ -18,7 +18,7 @@
     {
       networking.hostName = "${hostname}";
       networking.networkmanager.enable = true;
-      networking.wireless.enable = true; #not sure if needed? maybe somewhere else
+#      networking.wireless.enable = lib.mkDefault true; #not sure if needed? maybe somewhere else
 
       services.fail2ban = {
         enable = false;

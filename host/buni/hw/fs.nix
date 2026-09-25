@@ -5,9 +5,6 @@
   ...
 }:
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
 
   boot.initrd.availableKernelModules = [
     "nvme"
@@ -118,9 +115,4 @@
 
   fileSystems."/silly".neededForBoot = true;
   environment.etc.adjtime.source = lib.mkForce "/silly/etc/adjtime";
-
-#  swapDevices = [ ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
