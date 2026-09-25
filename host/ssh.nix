@@ -21,6 +21,8 @@ rec {
         ];
       };
     };
+
+    #TODO: add new host
   };
 
   getAllKeys = pkgs.lib.unique (
