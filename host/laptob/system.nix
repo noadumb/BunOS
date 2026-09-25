@@ -10,7 +10,6 @@
     ../../style
     ../../vim
     ./persistence
-    ./gpu.nix
 #    ./services
   ];
 
@@ -121,8 +120,8 @@
     dockerCompat = true;
   };
 
-  age.identityPaths = [
-    "/silly/etc/ssh/ssh_host_ed25519_key"
+/*  age.identityPaths = [
+#    "/silly/etc/ssh/ssh_host_ed25519_key" #TODO: ADD
   ];
   age.secrets.root = {
     file = ./secrett/root.age;
@@ -135,7 +134,7 @@
     mode = "400";
     owner = "root";
     group = "root";
-  };
+  }; */
 #  age.secrets.sync = {
 #    file = ./secrett/sync.age;
 #    mode = "400";
@@ -166,10 +165,12 @@
     mutableUsers = false;
     users = {
       root = {
-        hashedPasswordFile = config.age.secrets.root.path;
+#        hashedPasswordFile = config.age.secrets.root.path;
+        password = "a";
       };
       noelle = {
-        hashedPasswordFile = config.age.secrets.noelle.path;
+#        hashedPasswordFile = config.age.secrets.noelle.path;
+        password = "a";
         isNormalUser = true;
         openssh = {
           authorizedKeys.keys = (import ../ssh.nix { inherit pkgs; }).getAllKeys;
