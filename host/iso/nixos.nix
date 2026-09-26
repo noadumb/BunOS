@@ -9,6 +9,7 @@
   ];
 
   catppuccin = {
+    autoEnable = true;
     enable = true;
     flavor = "macchiato";
     accent = "mauve";
