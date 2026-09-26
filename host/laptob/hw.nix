@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -16,10 +17,10 @@
     "usbhid"
     "usb_storage"
     "sd_mod"
-    "rtsx_pci_sdmmc"
+    "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   hardware.graphics = {
@@ -124,8 +125,7 @@
   networking.useDHCP = lib.mkDefault true;
   environment.etc.adjtime.source = lib.mkForce "/silly/etc/adjtime";
 
-#  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

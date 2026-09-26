@@ -13,6 +13,14 @@ rec {
         ];
       };
     };
+    laptob = {
+      tags = [ "laptop" ];
+      users = {
+        noelle = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJArLSovK+fQbv00gGOGhCAyRdxs3R9oz0fnfHb1yv3E noelle@laptob"
+        ];
+      };
+    };
     kibity = {
       tags = [ "pc" ];
       users = {
@@ -21,8 +29,6 @@ rec {
         ];
       };
     };
-
-    #TODO: add new host
   };
 
   getAllKeys = pkgs.lib.unique (

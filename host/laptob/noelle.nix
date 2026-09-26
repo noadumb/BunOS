@@ -37,22 +37,22 @@
     font_features = "+frac +liga +ordn +sinf";
   };
 
-/*  bunos.net.syncthing = {
+  bunos.net.syncthing = {
     enable = false;
     cert = osConfig.age.secrets.sync.path;
     key = osConfig.age.secrets.synck.path;
-  }; */
+  };
 
   bunos.desktop.gaming.minecraft.enable = true;
 
-/*  programs.senpai.config = {
+  programs.senpai.config = {
     enable = false;
     nickname = "noelle";
 #    password-cmd = [
 #      "cat"
 #      "${osConfig.age.secrets.irc.path}"
 #    ];
-  }; */
+  };
 
   services.recoll = {
     enable = false;
