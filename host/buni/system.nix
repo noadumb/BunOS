@@ -57,6 +57,7 @@
     asusctl
     brightnessctl
     pkgs.mesa-demos
+    sbctl
   ];
 
   bunos.net.ssh.enableJump = true;
@@ -117,6 +118,7 @@
 
   bunos.boot = {
     mode = "uefi";
+    secureboot.enable = true;
   };
 
   bunos.desktop = {

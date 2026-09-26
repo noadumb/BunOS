@@ -17,6 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.darwin.follows = "";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,15 +49,12 @@
     nixpkgs,
     home-manager,
     agenix,
-      ...
+    lanzaboote,
+    ...
   }:
   let
     system = "x86_64-linux";
     sys = hostname: ./host/${hostname}/system.nix;
-#    pkgs = import nixpkgs {
-#      inherit system;
-#	    config.allowUnfree = true;
-#    };
     lib = nixpkgs.lib;
 
     args =
@@ -103,6 +104,7 @@
           inputs.agenix.nixosModules.default
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
           hmSettings
           (sys hostname)
         ];
@@ -126,6 +128,7 @@
           inputs.agenix.nixosModules.default
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
           hmSettings
           (sys hostname)
         ];
@@ -149,6 +152,7 @@
           inputs.agenix.nixosModules.default
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
           hmSettings
           (sys hostname)
         ];

@@ -49,6 +49,7 @@
 
   environment.systemPackages = with pkgs; [
     ntfs3g
+    sbctl
   ];
 
   bunos.net.ssh.enableJump = true;
@@ -77,6 +78,7 @@
 
   bunos.boot = {
     mode = "uefi";
+#    secureboot.enable = true;
   };
 
   bunos.desktop = {

@@ -26,19 +26,24 @@
           description = "list of devices to install GRUB to in legacy mode";
         };
       };
+      secureboot = {
+        enable = mkEnableOption "secure-boot";
+      };
     };
   };
   config = {
     boot = {
       loader = lib.mkMerge [
         {
-          systemd-boot.enable = (config.bunos.boot.mode == "uefi");
+
+          systemd-boot.enable = ((config.bunos.boot.mode == "uefi") && (config.bunos.boot.secureboot.enable == false));
           systemd-boot.editor = false;
           grub.enable = false;
           efi = lib.mkIf (config.bunos.boot.mode == "uefi") {
             canTouchEfiVariables = true;
             efiSysMountPoint = lib.mkDefault config.bunos.boot.efi.mount;
           };
+
         }
         (lib.mkIf (config.bunos.boot.mode != "uefi") {
           grub = {
@@ -50,6 +55,18 @@
           };
         })
       ];
+
+      lanzaboote = lib.mkIf (config.bunos.boot.secureboot.enable) {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
+        autoGenerateKeys.enable = true;
+        autoEnrollKeys = {
+          enable = true;
+          includeFirmwareBuiltinKeys = true;
+          autoReboot = false;
+        };
+      };
     };
+    bunos.boot.secureboot.enable = lib.mkDefault false;
   };
 }

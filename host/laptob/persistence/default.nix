@@ -28,6 +28,24 @@
             mode = "0755";
           }
           {
+            directory = /etc/secureboot;
+            user = "root";
+            group = "root";
+            mode = "0755";
+          }
+          {
+            directory = /var/lib/sbctl;
+            user = "root";
+            group = "root";
+            mode = "0755";
+          }
+          {
+            directory = /var/lib/auto-cryptenroll;
+            user = "root";
+            group = "root";
+            mode = "0755";
+          }
+          {
             directory = /etc/NetworkManager/system-connections;
             user = "root";
             group = "root";
