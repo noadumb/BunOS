@@ -69,6 +69,17 @@
     };
   };
 
+  services.rkvm = {
+    client = {
+      enable = true;
+      settings = {
+        certificate = "/etc/rkvm/certificate.pem";
+        password = "1234";
+        server = "192.168.0.41:5258";
+      };
+    };
+  };
+
 
 
 
@@ -77,7 +88,7 @@
 
   bunos.boot = {
     mode = "uefi";
-#    secureboot.enable = true;
+    secureboot.enable = true;
   };
 
   bunos.desktop = {

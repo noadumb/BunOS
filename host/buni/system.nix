@@ -62,6 +62,24 @@
 
   bunos.net.ssh.enableJump = true;
 
+  services.rkvm = {
+    server = {
+      enable = true;
+      settings = {
+        key = "/etc/rkvm/key.pem";
+        certificate = "/etc/rkvm/certificate.pem";
+
+        listen = "0.0.0.0:5258";
+        password = "1234"; #TODO: change
+        switch-keys = [
+          "left-alt"
+          "left-ctrl"
+        ];
+      };
+    };
+
+  };
+
 
 #  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 #  services.xserver.videoDrivers = [ "nvidia" ];
