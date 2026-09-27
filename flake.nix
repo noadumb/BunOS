@@ -136,6 +136,7 @@
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
+          nvf.nixosModules.default
           hmSettings
           (sys hostname)
         ];
@@ -161,6 +162,7 @@
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
+          nvf.nixosModules.default
           hmSettings
           (sys hostname)
         ];
