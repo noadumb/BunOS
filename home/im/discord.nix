@@ -1,5 +1,12 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  ...
+}:
+{
+  services.arrpc = {
+    enable = true;
+  };
+
   programs.vesktop = {
     enable = true;
     vencord = {
@@ -9,6 +16,8 @@
         autoUpdateNotification = false;
         useQuickCss = true;
         disableMinSize = true;
+        winNativeTitleBar = false;
+
         themes = {
           "catppuccin" = ''
             /**
@@ -31,13 +40,18 @@
           AlwaysExpandRoles.enabled = true;
           BetterSessions.enabled = true;
           CallTimer.enabled = true;
+          CopyFileContents.enabled = true;
+          CustomRPC.enabled = true;
           Dearrow.enabled = true;
           Decor.enabled = true;
+          FakeNitro.enabled = true;
           ForceOwnerCrown.enabled = true;
+          FixSpotifyEmbeds.enabled = true;
           FixYoutubeEmbeds.enabled = true;
           FixImagesQuality.enabled = true;
           FriendsSince.enabled = true;
           FullSearchContext.enabled = true;
+          GameActivityToggle.enabled = true;
           ImageZoom.enabled = true;
           MemberCount.enabled = true;
           MessageLogger = {
@@ -57,12 +71,14 @@
             theme = "Catppuccin Mocha";
           };
           ShowHiddenChannels.enabled = true;
+          ShowHiddenThings.enabled = true;
           Showions.enabled = true;
           SilentTyping.enabled = true;
           Summaries.enabled = true;
           TypingIndicator.enabled = true;
           VolumeBooster.enabled = true;
           WhoReacted.enabled = true;
+          "WebRichPresence (arRPC)".enabled = true;
           YoutubeAdblock.enabled = true;
         };
       };
