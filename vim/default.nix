@@ -5,11 +5,21 @@
   ...
 }:
 {
-  programs.neovim = {
+/*  programs.neovim = {
     enable = true;
     defaultEditor = true;
     configure = {
       # TODO WAAAAA
+    };
+  }; */
+  programs.nvf = {
+    enable = true;
+    settings = {
+      vim.viAlias = true;
+      vim.vimAlias = true;
+      vim.lsp = {
+        enable = true;
+      };
     };
   };
 
