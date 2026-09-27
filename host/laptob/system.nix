@@ -69,7 +69,7 @@
     };
   };
 
-  services.rkvm = {
+/*  services.rkvm = {
     client = {
       enable = true;
       settings = {
@@ -78,7 +78,7 @@
         server = "192.168.0.41:5258";
       };
     };
-  };
+  }; */
 
 
 
