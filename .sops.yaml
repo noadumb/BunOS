@@ -1,0 +1,11 @@
+keys:
+  - &users:
+    - &noelle age1k3ah5skd3arzssskzc87tq2yeyxj74dkjlq7zxu90t8n5rfu0umshs240t
+  - &hosts:
+    - &buni age192pqpalgp5u2v7vd53u94qx7yayvpacd8v49n3yv5a5x6qxkc9jswxn6g0
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+    - age:
+      - *noelle
+      - *buni

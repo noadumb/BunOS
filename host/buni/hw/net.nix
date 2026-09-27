@@ -48,4 +48,5 @@
       AutoConnect = true;
     };
   };
+  systemd.services.iwd.wantedBy = lib.mkForce [ ];
 }

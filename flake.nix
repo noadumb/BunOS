@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
-      url = "github:mic92/sops-nix";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
@@ -49,6 +49,7 @@
     nixpkgs,
     home-manager,
     agenix,
+    sops-nix,
     lanzaboote,
     ...
   }:
@@ -102,6 +103,7 @@
         modules = [
           inputs.impermanence.nixosModules.impermanence
           inputs.agenix.nixosModules.default
+          sops-nix.nixosModules.sops
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
@@ -126,6 +128,7 @@
         modules = [
           inputs.impermanence.nixosModules.impermanence
           inputs.agenix.nixosModules.default
+          sops-nix.nixosModules.sops
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
@@ -150,6 +153,7 @@
         modules = [
           inputs.impermanence.nixosModules.impermanence
           inputs.agenix.nixosModules.default
+          sops-nix.nixosModules.sops
           inputs.disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote

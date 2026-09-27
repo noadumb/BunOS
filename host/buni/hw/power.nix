@@ -15,8 +15,8 @@
   services.tlp.enable = false;
 
   services.asusd = {
-    enable = true;
 
+    enable = true;
 
     asusdConfig.text = ''
       (
@@ -48,6 +48,73 @@
         armoury_settings: {},
       )
     '';
+    fanCurvesConfig.text = ''
+      (
+        profiles: (
+            balanced: [
+                (
+                    fan: CPU,
+                    pwm: (2, 20, 33, 45, 56, 81, 99, 135),
+                    temp: (47, 62, 65, 68, 70, 72, 74, 76),
+                    enabled: false,
+                ),
+                (
+                    fan: GPU,
+                    pwm: (2, 20, 33, 45, 56, 81, 99, 135),
+                    temp: (47, 59, 62, 65, 67, 69, 71, 73),
+                    enabled: false,
+                ),
+                (
+                    fan: MID,
+                    pwm: (2, 40, 40, 71, 89, 119, 173, 206),
+                    temp: (47, 62, 65, 68, 70, 72, 74, 76),
+                    enabled: false,
+                ),
+            ],
+            performance: [
+                (
+                    fan: CPU,
+                    pwm: (33, 45, 81, 99, 135, 147, 183, 219),
+                    temp: (64, 66, 68, 70, 72, 74, 76, 78),
+                    enabled: false,
+                ),
+                (
+                    fan: GPU,
+                    pwm: (33, 45, 81, 99, 135, 147, 183, 219),
+                    temp: (57, 60, 63, 66, 68, 70, 72, 74),
+                    enabled: false,
+                ),
+                (
+                    fan: MID,
+                    pwm: (40, 71, 119, 173, 206, 206, 255, 255),
+                    temp: (64, 66, 68, 70, 72, 74, 76, 78),
+                    enabled: false,
+                ),
+            ],
+            quiet: [
+                (
+                    fan: CPU,
+                    pwm: (2, 15, 20, 33, 45, 56, 81, 81),
+                    temp: (43, 68, 70, 72, 74, 76, 78, 255),
+                    enabled: false,
+                ),
+                (
+                    fan: GPU,
+                    pwm: (2, 15, 20, 33, 45, 56, 81, 81),
+                    temp: (43, 67, 68, 70, 70, 70, 70, 255),
+                    enabled: false,
+                ),
+                (
+                    fan: MID,
+                    pwm: (2, 2, 40, 40, 71, 89, 119, 119),
+                    temp: (43, 68, 70, 72, 74, 76, 78, 255),
+                    enabled: false,
+                ),
+            ],
+            custom: [],
+        ),
+      )
+    '';
 
   };
   environment.etc."asusd/.keep".text = "";
@@ -68,8 +135,8 @@
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;
-      amdgpuBusId = "PCI:101@0:0:0";
-      nvidiaBusId = "PCI:100@0:0:0";
+      amdgpuBusId = "PCI:101:0:0";
+      nvidiaBusId = "PCI:100:0:0";
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];

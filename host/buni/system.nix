@@ -203,6 +203,13 @@
     group = "root";
   };
 
+/*  sops.secrets = {
+    "noelle-password" = {
+      owner = config.users.users.noelle.name;
+      inherit (config.users.users.noelle) group;
+    };
+  };
+  sops.secrets.noelle-password.neededForUsers = true; */
 
   users = {
     mutableUsers = false;
@@ -211,6 +218,7 @@
         hashedPasswordFile = config.age.secrets.root.path;
       };
       noelle = {
+#        hashedPasswordFile = config.sops.secrets.noelle-password.path;
         hashedPasswordFile = config.age.secrets.noelle.path;
         isNormalUser = true;
         openssh = {
