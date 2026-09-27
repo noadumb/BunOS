@@ -62,9 +62,9 @@
 
   bunos.net.ssh.enableJump = true;
 
-  services.rkvm = {
+/*  services.rkvm = {
     server = {
-      enable = true;
+      enable = false;
       settings = {
         key = "/etc/rkvm/key.pem";
         certificate = "/etc/rkvm/certificate.pem";
@@ -77,8 +77,7 @@
         ];
       };
     };
-
-  };
+  }; */
 
 
 #  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

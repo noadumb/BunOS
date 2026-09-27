@@ -57,12 +57,12 @@
             group = "root";
             mode = "0755";
           }
-          {
-            directory = /etc/rkvm;
-            user = "root";
-            group = "root";
-             mode = "0755";
-          }
+#          {
+#            directory = /etc/rkvm;
+#            user = "root";
+#            group = "root";
+#             mode = "0755";
+#          }
         ];
         files = map toString [
           /etc/machine-id
