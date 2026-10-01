@@ -9,9 +9,11 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = "amd_pstate=passive";
+
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  services.power-profiles-daemon.enable = true;
+  services.power-profiles-daemon.enable = false;
   services.tlp.enable = false;
 
   services.asusd = {
