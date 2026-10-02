@@ -11,6 +11,9 @@
     lolcat
     charasay
   ];
+  programs.fish.shellAliases = {
+    pwease = "sudo";
+  };
 
   programs.fd.enable = lib.mkForce true;
 
