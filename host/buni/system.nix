@@ -58,6 +58,7 @@
     brightnessctl
     pkgs.mesa-demos
     sbctl
+
   ];
 
   bunos.net.ssh.enableJump = true;

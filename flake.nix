@@ -15,7 +15,6 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.2.0";

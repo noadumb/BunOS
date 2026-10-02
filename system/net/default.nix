@@ -35,6 +35,7 @@
         wireguard-tools
         wgnord
       ];
+      
 
 
       services.openssh = {

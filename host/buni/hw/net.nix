@@ -16,6 +16,7 @@
   networking.networkmanager.wifi = {
     powersave = false;
     scanRandMacAddress = false;
+    backend = "iwd";
   };
 
   systemd.services.mediatek-wifi-resume = {
@@ -37,7 +38,6 @@
   };
 
   hardware.enableAllFirmware = true;
-  networking.networkmanager.wifi.backend = "iwd";
 #  networking.wireless.enable = false;
   networking.wireless.iwd.settings = {
     General = {

@@ -7,13 +7,18 @@
 }:
 {
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-  boot.extraModprobeConfig = "amd_pstate=passive";
+  boot.kernelModules = [ "kvm-amd" "zenpower" ];
+  boot.blacklistedKernelModules = [ "k10temp" "nouveau" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+  boot.kernelParams = [ "amd_pstate=active" ];
+
+  environment.systemPackages = with pkgs; [
+    powertop
+  ];
 
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  services.power-profiles-daemon.enable = false;
+  services.power-profiles-daemon.enable = true;
   services.tlp.enable = false;
 
   services.asusd = {
@@ -142,7 +147,6 @@
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.blacklistedKernelModules = [ "nouveau" ];
 
   services.fwupd.enable = true;
   services.upower.enable = true;

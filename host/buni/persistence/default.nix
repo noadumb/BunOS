@@ -40,7 +40,19 @@
             mode = "0755";
           }
           {
+            directory = /var/lib/iwd;
+            user = "root";
+            group = "root";
+            mode = "0700";
+          }
+          {
             directory = /etc/NetworkManager/system-connections;
+            user = "root";
+            group = "root";
+            mode = "0755";
+          }
+          {
+            directory = /var/lib/NetworkManager;
             user = "root";
             group = "root";
             mode = "0755";
@@ -56,6 +68,19 @@
             user = "root";
             group = "root";
             mode = "0755";
+          }
+          #wgnord
+          {
+            directory = /etc/wireguard;
+            user = "root";
+            group = "root";
+            mode = "0700";
+          }
+          {
+            directory = /var/lib/wgnord;
+            user = "root";
+            group = "root";
+            mode = "0700";
           }
 #          {
 #            directory = /etc/rkvm;
