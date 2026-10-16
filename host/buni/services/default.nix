@@ -2,6 +2,6 @@
 {
   imports = [
 #    ./adguard.nix
-    ./router.nix
+#    ./router.nix
   ];
 }

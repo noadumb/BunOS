@@ -20,10 +20,11 @@
     kdePackages.kate
     telegram-desktop
     signal-desktop
-#    tor-browser
     krita
     spotify #change to idk spotifyd at some point
-    motrix-next
+    steam-run
+    nur.repos.GriefNorth.ps5upload
+    unrar-free
     ];
 
   catppuccin = {
@@ -32,7 +33,6 @@
     flavor = "macchiato";
     accent = "mauve";
   };
-
 
   programs.kitty.settings = {
     font_family = "Comic Code Ligatures";
@@ -55,11 +55,6 @@
     ];
   };
 
-  services.recoll = {
-    enable = false;
-    # TODO SMTH IDK WRUF :3
-  };
-
   systemd.user.services = {
     adjust-audio = {
       Unit = {
@@ -76,57 +71,4 @@
       };
     };
   };
-#   android_sdk.accept_license = true;
-
-/*  programs.thunderbird = {
-    enable = true;
-  }; */
-
-
-/*  programs.firefox = {
-    enable = true;
-    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  }; */ # moved to browsers directory
-
-/*  programs.nushell = {
-    enable = true;
-  };
-
-  bunos.net.syncthing = {
-    enable = true;
-#    cert =
-#    key =  # LATER
-  }; */
-
-/*
-
-  programs.obs-studio = {
-    enable = true;
-
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-      obs-vaapi
-      obs-gstreamer
-      obs-vkcapture
-    ];
-  };
-
-*/
-
-
-
-/*  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 5";
-    flake = "/home/noa/config";
-  }; */
 }

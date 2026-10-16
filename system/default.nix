@@ -16,7 +16,7 @@
     ../overlay
   ];
 
-  nix.package = pkgs.lix; #ENABLE LATER
+#  nix.package = pkgs.lix; #TODO: reenable, broken rn
 
   environment.systemPackages = with pkgs; [
     bash
@@ -44,7 +44,7 @@
       useBabelfish = true;
     };
     mtr.enable = true;
-    iotop.enable = true;
+#    iotop.enable = true;
     less = {
       enable = true;
     };

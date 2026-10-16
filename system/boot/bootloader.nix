@@ -59,6 +59,7 @@
       lanzaboote = lib.mkIf (config.bunos.boot.secureboot.enable) {
         enable = true;
         pkiBundle = "/var/lib/sbctl";
+        configurationLimit = 10;
         autoGenerateKeys.enable = true;
         autoEnrollKeys = {
           enable = true;

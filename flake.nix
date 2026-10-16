@@ -42,6 +42,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -53,6 +57,7 @@
     sops-nix,
     lanzaboote,
     nvf,
+    nur,
     ...
   }:
   let
@@ -110,6 +115,7 @@
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
           nvf.nixosModules.default
+          nur.modules.nixos.default
           hmSettings
           (sys hostname)
         ];

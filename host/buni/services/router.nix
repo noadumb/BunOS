@@ -1,4 +1,5 @@
-{ pkgs,
+{
+  pkgs,
   ...
 }:
 {
@@ -18,7 +19,7 @@
 #      "8.8.4.4"
 #    ];
     nat = {
-      enable = true;
+      enable = false;
       internalInterfaces = [ "eth0" ];
       externalInterface = "wlan0";
     };
@@ -30,11 +31,11 @@
         prefixLength = 24;
       }];
     };
-    defaultGateway = "192.168.0.1";
+    defaultGateway = "10.0.0.138";
     networkmanager.unmanaged = [ "eth0" ];
   };
   services.dnsmasq = {
-    enable = true;
+    enable = false;
     settings = {
       interface = "eth0";
       bind-interfaces = true;
@@ -57,4 +58,5 @@
     allowedUDPPorts = [ 53 67 ];
     allowedTCPPorts = [ 53 ];
   };
+
 }

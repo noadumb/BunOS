@@ -1,5 +1,7 @@
 { lib, pkgs, ... }:
 {
+  home.packages = with pkgs; [ uget ];
+  programs.firefox.nativeMessagingHosts = [ pkgs.uget-integrator ];
   programs.firefox = {
     enable = true;
 

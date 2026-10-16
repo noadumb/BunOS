@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   ...
 }:
 {
@@ -33,6 +34,7 @@
 
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -63,6 +65,12 @@
 
   bunos.net.ssh.enableJump = true;
 
+/*  programs.k3b.enable = true;
+  # optical drive access for k3b
+  services.udev.extraRules = ''
+    KERNEL=="sr[0-9]*", GROUP="cdrom", MODE="0660"
+  ''; */
+
 /*  services.rkvm = {
     server = {
       enable = false;
@@ -81,40 +89,7 @@
   }; */
 
 
-#  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-#  services.xserver.videoDrivers = [ "nvidia" ];
-#  services.asusd = {
-#    enable = true;
-#
-#  };
-#  environment.etc."asusd/.keep".text = "";
-#  services.power-profiles-daemon.enable = true;
-#  services.cardwired.enable = true;
-#  services.tlp = {
-#    enable = false;
-#    settings = {
-#      STOP_CHARGE_THRESH_BAT0 = 80;
-#    };
-#  };
-#
-#  hardware.nvidia = {
-#    modesetting.enable = true;
-#    powerManagement.enable = true;
-#    powerManagement.finegrained = true;
-#    open = true;
-#    nvidiaSettings = true;
-#    package = config.boot.kernelPackages.nvidiaPackages.stable;
-#
-#    prime = {
-#      offload = {
-#        enable = true;
-#        enableOffloadCmd = true;
-#      };
-#      amdgpuBusId = "PCI:101@0:0:0";
-#      nvidiaBusId = "PCI:100@0:0:0";
-#    };
-#  };
-#  boot.blacklistedKernelModules = [ "nouveau" ];
+
 
   hardware.bluetooth = {
     enable = true;
@@ -221,14 +196,6 @@
     group = "root";
   };
 
-/*  sops.secrets = {
-    "noelle-password" = {
-      owner = config.users.users.noelle.name;
-      inherit (config.users.users.noelle) group;
-    };
-  };
-  sops.secrets.noelle-password.neededForUsers = true; */
-
   users = {
     mutableUsers = false;
     users = {
@@ -236,7 +203,6 @@
         hashedPasswordFile = config.age.secrets.root.path;
       };
       noelle = {
-#        hashedPasswordFile = config.sops.secrets.noelle-password.path;
         hashedPasswordFile = config.age.secrets.noelle.path;
         isNormalUser = true;
         openssh = {
@@ -248,6 +214,7 @@
           "i2c"
           "video"
           "adbusers"
+          "cdrom"
         ];
       };
     };
