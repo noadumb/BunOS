@@ -35,7 +35,7 @@
     ntfs3g
     xfs
     xfsprogs
-    asusctl
+    btrfs-progs
     brightnessctl
     pkgs.mesa-demos
     sbctl
