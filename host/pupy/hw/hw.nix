@@ -15,5 +15,9 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "uas" "sd_mod" "sr_mod" "sdhci_pci" ];
-  hardware.intelgpu.vaapiDriver = "intel-vaapi-driver";
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-vaapi-driver ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+  };
 }
