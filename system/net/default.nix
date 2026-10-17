@@ -35,14 +35,14 @@
         wireguard-tools
         wgnord
       ];
-      
+
 
 
       services.openssh = {
         enable = true;
         ports = [ 6969 ];
         settings = {
-          PermitRootLogin = "no";
+          PermitRootLogin = "prohibit-password";
           PasswordAuthentication = true;
           PubkeyAuthentication = true;
           TCPKeepAlive = false;

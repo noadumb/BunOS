@@ -61,15 +61,23 @@
     pkgs.mesa-demos
     sbctl
 
+    deskflow
   ];
+
+  networking.firewall = {
+    allowedTCPPorts = [ 24800 ];
+    allowedUDPPorts = [ 24800 ];
+  };
 
   bunos.net.ssh.enableJump = true;
 
-/*  programs.k3b.enable = true;
+#  programs.k3b.enable = true;
   # optical drive access for k3b
-  services.udev.extraRules = ''
+/*  services.udev.extraRules = ''
     KERNEL=="sr[0-9]*", GROUP="cdrom", MODE="0660"
   ''; */
+
+
 
 /*  services.rkvm = {
     server = {

@@ -55,42 +55,12 @@
                     "bunie"
                   ];
                   subvolumes = {
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = [
-                        "subvol=nix"
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
-                    "/silly" = {
-                      mountpoint = "/silly";
-                      mountOptions = [
-                        "subvol=silly"
-                        "compress=zstd"
-                        "relatime"
-                      ];
-                    };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [
-                        "subvol=home"
-                        "compress=zstd"
-                        "relatime"
-                      ];
-                    };
-                    "/log" = {
-                      mountpoint = "/var/log";
-                      mountOptions = [
-                        "subvol=log"
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
-                    "/awawa" = {
-                      mountpoint = "/awawa";
-                      swap.swapfile.size = "48G";
-                    };
+                    "/bunos-nix" = { mountpoint = "/nix"; mountOptions = [ "subvol=bunos-nix" "compress=zstd" "noatime" ]; };
+                    "/bunos-silly" = { mountpoint = "/silly"; mountOptions = [ "subvol=bunos-silly" "compress=zstd" "relatime" ]; };
+                    "/bunos-home" = { mountpoint = "/home"; mountOptions = [ "subvol=bunos-home" "compress=zstd" "relatime" ]; };
+                    "/bunos-log" = { mountpoint = "/var/log"; mountOptions = [ "subvol=bunos-log" "compress=zstd" "noatime" ]; };
+                    "/awawa" = { mountpoint = "/awawa"; swap.swapfile.size = "48G"; };
+                    "/shared" = { mountpoint = "/shared"; mountOptions = [ "subvol=shared" "compress=zstd" "noatime" ]; };
                   };
                 };
               };
@@ -112,5 +82,11 @@
   };
 
   fileSystems."/silly".neededForBoot = true;
+  fileSystems."/home/noelle/shared" = {
+    device = "/shared";
+    fsType = "none";
+    options = [ "bind" "nofail" ];
+    depends = [ "/shared" "/home" ];
+  };
   environment.etc.adjtime.source = lib.mkForce "/silly/etc/adjtime";
 }

@@ -14,6 +14,7 @@
   programs.fish.shellAliases = {
     pwease = "sudo";
   };
+  home.shell.enableFishIntegration = true;
 
   programs.fd.enable = lib.mkForce true;
 

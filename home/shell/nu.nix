@@ -4,6 +4,7 @@
   ...
 }:
 {
+  home.shell.enableNushellIntegration = true;
   programs.nushell = {
     enable = true;
     plugins = with pkgs.nushellPlugins; [
@@ -11,5 +12,10 @@
       query
       polars
     ];
+    extraConfig = ''
+      def within [w: duration] {
+        (date now) + $w
+      }
+    '';
   };
 }

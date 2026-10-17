@@ -126,6 +126,30 @@
       }
     );
 
+    nixosConfigurations.pupy = nixpkgs.lib.nixosSystem (
+      let
+        user = "noelle";
+        hostname = "pupy";
+      in
+      {
+        inherit system;
+
+        modules = [
+          inputs.impermanence.nixosModules.impermanence
+          inputs.agenix.nixosModules.default
+          inputs.disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          nvf.nixosModules.default
+          hmSettings
+          (sys hostname)
+        ];
+        specialArgs = args {
+          inherit hostname;
+          inherit user;
+        };
+      }
+    );
+
     nixosConfigurations.laptob = nixpkgs.lib.nixosSystem (
       let
         user = "noelle";

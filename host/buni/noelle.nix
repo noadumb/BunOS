@@ -23,8 +23,9 @@
     krita
     spotify #change to idk spotifyd at some point
     steam-run
-    nur.repos.GriefNorth.ps5upload
+#    nur.repos.GriefNorth.ps5upload
     unrar-free
+    nicotine-plus
     ];
 
   catppuccin = {

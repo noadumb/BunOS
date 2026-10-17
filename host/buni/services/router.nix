@@ -12,14 +12,14 @@
   ];
 
   networking = {
-#    nameservers = [
-#      "8.8.8.8"
-#      "1.1.1.1"
-#      "1.0.0.1"
-#      "8.8.4.4"
-#    ];
+    nameservers = [
+      "8.8.8.8"
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.4.4"
+    ];
     nat = {
-      enable = false;
+      enable = true;
       internalInterfaces = [ "eth0" ];
       externalInterface = "wlan0";
     };
@@ -31,7 +31,7 @@
         prefixLength = 24;
       }];
     };
-    defaultGateway = "10.0.0.138";
+    defaultGateway = "192.168.0.1";
     networkmanager.unmanaged = [ "eth0" ];
   };
   services.dnsmasq = {

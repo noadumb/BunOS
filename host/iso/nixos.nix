@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   ...
 }:
 {
@@ -14,4 +15,6 @@
     flavor = "macchiato";
     accent = "mauve";
   };
+
+  programs.senpai.enable = lib.mkForce false;
 }
