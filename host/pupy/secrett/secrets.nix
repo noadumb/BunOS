@@ -1,6 +1,6 @@
 let
-  noelle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtH0Rp4e9J45U6gJ8aeBVP2j1kPEPl18tHrEFKMLPUG noa.magic2006@gmail.com";
-  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIABInqPbQ3iVzAu6gTAthL/G5YFGK2oxQWFZXZUmBrqm root@buni";
+  noelle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0krCMVzoBQWbtKxK80Zgb8bapwrhDN1ww6riiWD1/O noelle@pupy";
+  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHuP4OgfIuRTaIBS5Rns5/pvkCP9sVhpDgv4vtzrZiB7 root@pupy";
 
   k = [
     noelle

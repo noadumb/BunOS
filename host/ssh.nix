@@ -13,6 +13,14 @@ rec {
         ];
       };
     };
+    pupy = {
+      tags = [ "laptop" ];
+      users = {
+        noelle = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0krCMVzoBQWbtKxK80Zgb8bapwrhDN1ww6riiWD1/O noelle@pupy"
+        ];
+      };
+    };
     laptob = {
       tags = [ "laptop" ];
       users = {

@@ -135,7 +135,7 @@
     dockerCompat = true;
   };
 
-/*  age.identityPaths = [
+  age.identityPaths = [
     "/silly/etc/ssh/ssh_host_ed25519_key"
   ];
   age.secrets.root = {
@@ -150,7 +150,7 @@
     owner = "root";
     group = "root";
   };
-  age.secrets.sync = {
+/*  age.secrets.sync = {
     file = ./secrett/sync.age;
     mode = "400";
     owner = "noelle";
@@ -179,12 +179,12 @@
     mutableUsers = false;
     users = {
       root = {
-#        hashedPasswordFile = config.age.secrets.root.path;
-        password = "abcd";
+        hashedPasswordFile = config.age.secrets.root.path;
+#        password = "abcd";
       };
       noelle = {
-#        hashedPasswordFile = config.age.secrets.noelle.path;
-        password = "abcd"; #TODO: CHANGE ASAP
+        hashedPasswordFile = config.age.secrets.noelle.path;
+#        password = "abcd"; #TODO: CHANGE ASAP
         isNormalUser = true;
         openssh = {
           authorizedKeys.keys = (import ../ssh.nix { inherit pkgs; }).getAllKeys;
@@ -200,5 +200,4 @@
       };
     };
   };
-
 }
