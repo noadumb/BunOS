@@ -6,9 +6,11 @@
 }:
 {
   options = with lib; {
-    bunos.desktop.gaming.minecraft = {
-      enable = mkEnableOption "add Minecraft launcher";
-      package = mkPackageOption pkgs "Prism Launcher" { default = "prismlauncher"; };
+    bunos.desktop.gaming = {
+      minecraft = {
+        enable = mkEnableOption "add Minecraft launcher";
+        package = mkPackageOption pkgs "Prism Launcher" { default = "prismlauncher"; };
+      };
     };
   };
   config =

@@ -45,7 +45,10 @@
 #    key = osConfig.age.secrets.synck.path;
   };
 
-  bunos.desktop.gaming.minecraft.enable = true;
+  bunos.desktop.gaming = {
+    minecraft.enable = true;
+    streaming.enable = false;
+  };
 
   programs.senpai.config = {
     nickname = "noelle";

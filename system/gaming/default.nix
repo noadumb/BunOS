@@ -17,12 +17,5 @@
     programs.gamemode = {
       enable = lib.mkIf config.bunos.desktop.gaming.enable true;
     };
-
-    services.sunshine = {
-      enable = lib.mkIf config.bunos.desktop.gaming.enable true;
-      autoStart = true;
-      capSysAdmin = true;
-      openFirewall = true;
-    };
   };
 }
