@@ -56,6 +56,8 @@
     ntfs3g
     xfs
     xfsprogs
+    exfat
+    exfatprogs
     asusctl
     brightnessctl
     pkgs.mesa-demos
@@ -70,6 +72,26 @@
   };
 
   bunos.net.ssh.enableJump = true;
+
+  services.gnome.gnome-keyring.enable = false;
+
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    gutenprint
+    gutenprintBin
+    hplip
+    epson-escpr
+    epson-escpr2
+    cups-filters
+    cups-browsed
+  ];
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.ipp-usb.enable = true;
+
 
 #  programs.k3b.enable = true;
   # optical drive access for k3b
@@ -151,11 +173,7 @@
 
   #TODO: hibernation?
 
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
+
 
 
 

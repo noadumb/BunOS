@@ -16,7 +16,7 @@
     ../overlay
   ];
 
-#  nix.package = pkgs.lix; #TODO: reenable, broken rn
+  nix.package = pkgs.lix; #TODO: reenable, broken rn
 
   environment.systemPackages = with pkgs; [
     bash

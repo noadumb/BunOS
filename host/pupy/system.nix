@@ -50,6 +50,23 @@
 
   bunos.net.ssh.enableJump = true;
 
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    gutenprint
+    gutenprintBin
+    hplip
+    epson-escpr
+    epson-escpr2
+    cups-filters
+    cups-browsed
+  ];
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.ipp-usb.enable = true;
+
 #  programs.k3b.enable = true;
   # optical drive access for k3b
 /*  services.udev.extraRules = ''
@@ -123,12 +140,6 @@
   boot.initrd.systemd.network.wait-online.enable = false;
 
   #TODO: hibernation?
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
 
   virtualisation.podman = {
     enable = true;
