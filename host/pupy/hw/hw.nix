@@ -13,8 +13,8 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   boot.kernelParams = [ "i915.enable_rc6=7" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [ "kvm-intel" "tp_smapi" "sg" "sr_mod" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ tp_smapi ];
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "uas" "sd_mod" "sr_mod" "sdhci_pci" ];
   hardware.graphics = {
     enable = true;

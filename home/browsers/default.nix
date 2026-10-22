@@ -4,9 +4,11 @@
   programs.firefox.nativeMessagingHosts = [ pkgs.uget-integrator ];
   programs.firefox = {
     enable = true;
-
-
-/*    settings = {
+  };
+  programs.librewolf = {
+    enable = true;
+    nativeMessagingHosts = [ pkgs.uget-integrator ];
+    settings = {
 
       "webgl.disabled" = false;
       "identity.fxaccounts.enabled" = true;
@@ -14,6 +16,6 @@
       "privacy.clearOnShutdown.downloads" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
-    }; */
+    };
   };
 }

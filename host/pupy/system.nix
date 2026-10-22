@@ -41,6 +41,9 @@
     sbctl
 
     deskflow
+    cdrtools
+    dvdplusrwtools
+    cdrdao
   ];
 
   networking.firewall = {
@@ -67,11 +70,11 @@
   };
   services.ipp-usb.enable = true;
 
-#  programs.k3b.enable = true;
+  programs.k3b.enable = true;
   # optical drive access for k3b
-/*  services.udev.extraRules = ''
+  services.udev.extraRules = ''
     KERNEL=="sr[0-9]*", GROUP="cdrom", MODE="0660"
-  ''; */
+  '';
 
 
 
@@ -207,6 +210,7 @@
           "video"
           "adbusers"
           "cdrom"
+          "optical"
         ];
       };
     };

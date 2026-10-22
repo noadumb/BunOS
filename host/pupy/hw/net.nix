@@ -7,4 +7,5 @@
 }:
 {
   hardware.enableAllFirmware = true;
+  
 }
