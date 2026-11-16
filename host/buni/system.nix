@@ -146,6 +146,7 @@
 
   bunos.boot = {
     mode = "uefi";
+    bootloader = "limine";
     secureboot.enable = true;
   };
 

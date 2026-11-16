@@ -12,6 +12,11 @@
         default = "uefi";
         description = "option describing the boot mode (UEFI or legacy).";
       };
+      bootloader = mkOption {
+        type = types.strMatching "^(grub|systemd-boot|limine)$";
+        default = "systemd-boot";
+        description = "option describing the bootloader to use (GRUB, systemd-boot, limine).";
+      };
       efi = {
         mount = mkOption {
           type = types.str;
@@ -36,7 +41,7 @@
       loader = lib.mkMerge [
         {
 
-          systemd-boot.enable = ((config.bunos.boot.mode == "uefi") && (config.bunos.boot.secureboot.enable == false));
+          systemd-boot.enable = ((config.bunos.boot.bootloader == "systemd-boot") && (config.bunos.boot.mode == "uefi") && (config.bunos.boot.secureboot.enable == false));
           systemd-boot.editor = false;
           grub.enable = false;
           efi = lib.mkIf (config.bunos.boot.mode == "uefi") {
@@ -45,6 +50,23 @@
           };
 
         }
+        (lib.mkIf ((config.bunos.boot.bootloader == "limine") && (config.bunos.boot.mode == "uefi")) {
+          limine = {
+            enable = true;
+            secureBoot.enable = lib.mkDefault config.bunos.boot.secureboot.enable;
+          };
+        })
+        (lib.mkIf ((config.bunos.boot.bootloader == "grub") && (config.bunos.boot.mode == "uefi")) {
+          grub = {
+            enable = true;
+            version = 2;
+            efiSupport = true;
+            useOSProber = true;
+            enableCryptodisk = lib.mkDefault true;
+            backgroundColor = "#d164ec";
+            devices = lib.mkDefault [ ];
+          };
+        })
         (lib.mkIf (config.bunos.boot.mode != "uefi") {
           grub = {
             enable = true;
@@ -56,7 +78,7 @@
         })
       ];
 
-      lanzaboote = lib.mkIf ((config.bunos.boot.secureboot.enable) && (config.bunos.boot.mode == "uefi")) {
+      lanzaboote = lib.mkIf ((config.bunos.boot.bootloader == "systemd-boot") && (config.bunos.boot.secureboot.enable) && (config.bunos.boot.mode == "uefi")) {
         enable = true;
         pkiBundle = "/var/lib/sbctl";
         configurationLimit = 10;
