@@ -54,6 +54,7 @@
           limine = {
             enable = true;
             secureBoot.enable = lib.mkDefault config.bunos.boot.secureboot.enable;
+            maxGenerations = lib.mkDefault 10;
           };
         })
         (lib.mkIf ((config.bunos.boot.bootloader == "grub") && (config.bunos.boot.mode == "uefi")) {
