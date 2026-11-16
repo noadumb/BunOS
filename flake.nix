@@ -214,6 +214,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           hmSettings
+          lanzaboote.nixosModules.lanzaboote
           (sys hostname)
         ];
         specialArgs = args {

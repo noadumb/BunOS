@@ -7,6 +7,7 @@
   home.shell.enableNushellIntegration = true;
   programs.nushell = {
     enable = true;
+    loadSessionVariables = true;
     plugins = with pkgs.nushellPlugins; [
       formats
       query

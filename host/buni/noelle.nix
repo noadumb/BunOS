@@ -26,6 +26,7 @@
 #    nur.repos.GriefNorth.ps5upload
     unrar-free
     nicotine-plus
+    opencode
     ];
 
   catppuccin = {
@@ -50,6 +51,8 @@
     minecraft.enable = true;
     streaming.enable = true;
   };
+
+
 
   programs.senpai.config = {
     nickname = "noelle";

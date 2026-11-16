@@ -1,15 +1,65 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   home.packages = with pkgs; [ uget ];
-  programs.firefox.nativeMessagingHosts = [ pkgs.uget-integrator ];
   programs.firefox = {
     enable = true;
-  };
-  programs.librewolf = {
-    enable = true;
+    package = pkgs.librewolf;
     nativeMessagingHosts = [ pkgs.uget-integrator ];
-    settings = {
+    policies = {
+      DisableTelemetry = true;
+      DisableFirefoxStudies = true;
+      Preferences = {
+        "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
+        "cookiebanners.service.mode" = 2; # Block cookie banners
+        "identity.fxaccounts.enabled" = true;
+        "network.cookie.lifetimePolicy" = 0;
+        "privacy.clearOnShutdown.cookies" = false;
+        "privacy.clearOnShutdown.downloads" = false;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.donottrackheader.enabled" = true;
+        "privacy.fingerprintingProtection" = true;
+        "privacy.resistFingerprinting" = false;
+        "privacy.trackingprotection.emailtracking.enabled" = true;
+        "privacy.trackingprotection.enabled" = true;
+        "privacy.trackingprotection.fingerprinting.enabled" = true;
+        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "webgl.disabled" = false;
+      };
+      ExtensionSettings = {
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "vimium-c@gdh1995.cn" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-c/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "authenticator@mymindstorm" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/auth-helper/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "FirefoxColor@mozilla.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "idcac-pub@guus.ninja" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+    };
+  };
+/*  programs.librewolf = {
+    enable = true;
 
+    nativeMessagingHosts = [ pkgs.uget-integrator ];
+
+
+    settings = lib.mkDefault {
       "webgl.disabled" = false;
       "identity.fxaccounts.enabled" = true;
       "privacy.clearOnShutdown.history" = false;
@@ -17,5 +67,5 @@
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
     };
-  };
+  }; */
 }

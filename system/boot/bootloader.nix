@@ -56,7 +56,7 @@
         })
       ];
 
-      lanzaboote = lib.mkIf (config.bunos.boot.secureboot.enable) {
+      lanzaboote = lib.mkIf ((config.bunos.boot.secureboot.enable) && (config.bunos.boot.mode == "uefi")) {
         enable = true;
         pkiBundle = "/var/lib/sbctl";
         configurationLimit = 10;

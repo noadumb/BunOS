@@ -3,14 +3,14 @@
   ...
 }:
 {
+  home.packages = [ pkgs.discord ];
   services.arrpc = {
     enable = true;
   };
 
-  programs.vesktop = {
+  programs.equibop = {
     enable = true;
-    vencord = {
-      useSystem = true;
+    equicord = {
       settings = {
         autoUpdate = true;
         autoUpdateNotification = false;
